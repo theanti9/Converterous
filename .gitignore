@@ -1,0 +1,7 @@
+.git/
+.settings/
+bin/
+.project
+.DS_Store
+.classpath
+Textral/

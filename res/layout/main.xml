@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="fill_parent"
+	android:orientation="vertical"
+	android:background="@drawable/layout_bg"
+	android:layout_width="fill_parent">
+	
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="24dp"
+		android:layout_gravity="center_horizontal"
+		android:textSize="20sp"
+		android:text="Select a unit type"/>
+	
+	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center_horizontal"
+		android:layout_width="fill_parent"
+		android:paddingLeft="12dp"
+		android:paddingRight="12dp"
+		android:paddingTop="4dp"
+		android:layout_marginTop="8dp"
+		android:orientation="horizontal">
+	
+		<kankan.wheel.widget.WheelView android:id="@+id/whlType"
+			   android:layout_height="110dp"
+			   android:layout_width="fill_parent"
+			   android:layout_gravity="center_vertical"
+			   android:layout_weight="1"/>
+		
+		<TextView android:id="@+id/lblTo"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:layout_below="@id/whlType"
+			android:layout_alignParentRight="true"
+			android:layout_marginTop="10px"
+			android:text="Convert from..." />
+		
+		<TextView android:id="@+id/lblFrom"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:layout_below="@id/whlType"
+			android:layout_alignParentLeft="true"
+			android:layout_marginTop="10px"
+			android:text="Convert to..." />
+		
+		<kankan.wheel.widget.WheelView android:id="@+id/whlFrom"
+			   android:layout_height="110dp"
+			   android:layout_width="140dp"
+			   android:layout_below="@id/lblFrom"
+			   android:layout_alignParentLeft="true"
+			   android:layout_marginRight="10px"/>
+		
+		<kankan.wheel.widget.WheelView android:id="@+id/whlTo"
+			android:layout_height="110dp"
+			android:layout_width="140dp"
+			android:layout_below="@id/lblTo"
+			android:layout_alignParentRight="true"
+			android:layout_marginLeft="10px"/>
+	</RelativeLayout>
+</LinearLayout>
