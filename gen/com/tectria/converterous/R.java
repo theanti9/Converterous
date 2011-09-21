@@ -21,19 +21,22 @@ public final class R {
         public static final int wheel_val=0x7f020007;
     }
     public static final class id {
-        public static final int lblFrom=0x7f050002;
-        public static final int lblTo=0x7f050001;
-        public static final int wheelitem=0x7f050005;
-        public static final int whlFrom=0x7f050003;
-        public static final int whlTo=0x7f050004;
-        public static final int whlType=0x7f050000;
+        public static final int lblFrom=0x7f060002;
+        public static final int lblTo=0x7f060001;
+        public static final int wheelitem=0x7f060005;
+        public static final int whlFrom=0x7f060003;
+        public static final int whlTo=0x7f060004;
+        public static final int whlType=0x7f060000;
     }
     public static final class layout {
         public static final int main=0x7f030000;
         public static final int wheelitem=0x7f030001;
     }
+    public static final class raw {
+        public static final int click=0x7f040000;
+    }
     public static final class string {
-        public static final int app_name=0x7f040001;
-        public static final int hello=0x7f040000;
+        public static final int app_name=0x7f050001;
+        public static final int hello=0x7f050000;
     }
 }

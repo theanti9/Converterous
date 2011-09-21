@@ -39,7 +39,31 @@ public class UnitData {
 	}
 	
 	//returns unit name, given type and index
-	public static String getAtIndex(String type, int index) {
+		public static String[] getUnitAtIndex(String type, int index, int avoid) {
+			final char typechar = type.charAt(0);
+			String avoided = "0";
+			
+			if(index == avoid) {
+				++index;
+				avoided = "1";
+			}
+			
+			switch(typechar) {
+				case 'M':
+					return new String[] {massUnits.get(index), avoided};
+				case 'V':
+					return new String[] {volumeUnits.get(index), avoided};
+				case 'D':
+					return new String[] {distanceUnits.get(index), avoided};
+				case 'T':
+					return new String[] {timeUnits.get(index), avoided};
+				default:
+					return new String[] {allUnits.get(index), avoided};
+			}
+		}
+	
+	//returns unit name, given type and index
+	public static String getUnitAtIndex(String type, int index) {
 		final char typechar = type.charAt(0);
 		switch(typechar) {
 			case 'M':
@@ -50,11 +74,14 @@ public class UnitData {
 				return distanceUnits.get(index);
 			case 'T':
 				return timeUnits.get(index);
-			case 'U':
-				return unitTypes.get(index);
 			default:
 				return allUnits.get(index);
 		}
+	}
+	
+	//returns type name, given index
+	public static String getTypeAtIndex(int index) {
+		return unitTypes.get(index);
 	}
 	
 	//returns ArrayList of units, given a type
