@@ -5,12 +5,9 @@ import kankan.wheel.widget.adapters.*;
 import android.app.Activity;
 import android.content.Context;
 import android.media.*;
-import android.media.MediaPlayer.*;
 import android.os.Bundle;
-import android.view.Display;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.view.*;
+import android.widget.*;
 
 public class ConverterousActivity extends Activity {
 	
@@ -21,7 +18,11 @@ public class ConverterousActivity extends Activity {
     private WheelView whlTo = null;
     private WheelView whlFrom = null;
     private WheelView whlType = null;
+    private EditText txtFromVal = null;
+    private EditText txtToVal = null;
+    private TextView lblEq = null;
     private MediaPlayer mp = null;
+    private ConvertTool converter = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,17 +30,24 @@ public class ConverterousActivity extends Activity {
         setContentView(R.layout.main);
         
         mp = MediaPlayer.create(this, R.raw.click);
+        mp.setVolume(1.0f, 1.0f);
+        
+        converter = new ConvertTool();
         //display = getWindowManager().getDefaultDisplay();
-                
+        
+        txtFromVal = (EditText)findViewById(R.id.txtFromVal);
+        txtToVal = (EditText)findViewById(R.id.txtToVal);
+        lblEq = (TextView)findViewById(R.id.lblEq);
+        txtFromVal.setText("0");
+        txtToVal.setText("0");
+        
         whlTo = (WheelView)findViewById(R.id.whlTo);
         whlFrom = (WheelView)findViewById(R.id.whlFrom);
         whlType = (WheelView)findViewById(R.id.whlType);
-        //TODO: Hide whlTo and whlFrom on startup
         
         whlTo.setViewAdapter(new ToUnitAdapter(this, "Mass"));
         whlFrom.setViewAdapter(new FromUnitAdapter(this, "Mass"));
         whlType.setViewAdapter(new UnitTypeAdapter(this));
-        // Once whlTo and whlFrom are hidden, don't initialize them here; Only after whlType has been changed
 
         whlType.addChangingListener(new OnWheelChangedListener() {
 			public void onChanged(WheelView wheel, int oldVal, int newVal) {
@@ -52,6 +60,7 @@ public class ConverterousActivity extends Activity {
             public void onScrollingStarted(WheelView wheel) {
                 scrolling = true;
                 playClick();
+                hideResults();
             }
             public void onScrollingFinished(WheelView wheel) {
                 scrolling = false;
@@ -72,6 +81,7 @@ public class ConverterousActivity extends Activity {
             public void onScrollingStarted(WheelView wheel) {
                 scrolling = true;
                 playClick();
+                hideResults();
             }
             public void onScrollingFinished(WheelView wheel) {
                 scrolling = false;
@@ -81,7 +91,6 @@ public class ConverterousActivity extends Activity {
         
         whlTo.addChangingListener(new OnWheelChangedListener() {
 			public void onChanged(WheelView wheel, int oldVal, int newVal) {
-			    //TODO: Update results
 				playClick();
 			}
 		});
@@ -93,7 +102,7 @@ public class ConverterousActivity extends Activity {
             }
             public void onScrollingFinished(WheelView wheel) {
                 scrolling = false;
-                //TODO: Update results
+                showResults();
             }
         });
         
@@ -104,6 +113,29 @@ public class ConverterousActivity extends Activity {
     	mp.start();
     }
     
+	public final void hideResults() {
+		txtFromVal.setVisibility(View.INVISIBLE);
+		txtToVal.setVisibility(View.INVISIBLE);
+		lblEq.setVisibility(View.INVISIBLE);
+	}
+
+	public final void showResults() {
+		int offset = 0;
+		if(whlTo.getCurrentItem() >= whlFrom.getCurrentItem()) {
+			offset = 1;
+		}
+		
+		converter.setFromUnit(UnitData.getAbvAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlFrom.getCurrentItem()));
+		converter.setToUnit(UnitData.getAbvAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlTo.getCurrentItem() + offset));
+		converter.setFromNum(new Float(txtFromVal.getText().toString()));
+		
+		txtToVal.setText(converter.convert().toString());
+		
+		txtFromVal.setVisibility(View.VISIBLE);
+		txtToVal.setVisibility(View.VISIBLE);
+		lblEq.setVisibility(View.VISIBLE);
+	}
+    
     public final void updateFromUnits(int type) {
     	whlFrom.setViewAdapter(new FromUnitAdapter(this, UnitData.getTypeAtIndex(type)));
     	whlFrom.setCurrentItem(0);
@@ -113,6 +145,9 @@ public class ConverterousActivity extends Activity {
     public final void updateToUnits(int type) {
     	whlTo.setViewAdapter(new ToUnitAdapter(this, UnitData.getTypeAtIndex(type)));
     	whlTo.setCurrentItem(0);
+    	if(!scrolling) {
+    		showResults();
+    	}
     }
     
     /*

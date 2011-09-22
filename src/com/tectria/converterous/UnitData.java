@@ -79,6 +79,23 @@ public class UnitData {
 		}
 	}
 	
+	//returns unit abbreviation, given type and index
+		public static String getAbvAtIndex(String type, int index) {
+			final char typechar = type.charAt(0);
+			switch(typechar) {
+				case 'M':
+					return massUnitsAbv.get(index);
+				case 'V':
+					return volumeUnitsAbv.get(index);
+				case 'D':
+					return distanceUnitsAbv.get(index);
+				case 'T':
+					return timeUnitsAbv.get(index);
+				default:
+					return allUnitsAbv.get(index);
+			}
+		}
+	
 	//returns type name, given index
 	public static String getTypeAtIndex(int index) {
 		return unitTypes.get(index);

@@ -9,9 +9,9 @@
 	<TextView
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_marginTop="24dp"
+		android:layout_marginTop="5dp"
 		android:layout_gravity="center_horizontal"
-		android:textSize="20sp"
+		android:textSize="35sp"
 		android:text="Select a unit type"/>
 	
 	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -36,7 +36,9 @@
 			android:layout_below="@id/whlType"
 			android:layout_alignParentRight="true"
 			android:layout_marginTop="10px"
-			android:text="Convert from..." />
+			android:layout_marginRight="100sp"
+			android:textSize="27sp"
+			android:text="To:" />
 		
 		<TextView android:id="@+id/lblFrom"
 			android:layout_height="wrap_content"
@@ -44,7 +46,8 @@
 			android:layout_below="@id/whlType"
 			android:layout_alignParentLeft="true"
 			android:layout_marginTop="10px"
-			android:text="Convert to..." />
+			android:textSize="27sp"
+			android:text="From:" />
 		
 		<kankan.wheel.widget.WheelView android:id="@+id/whlFrom"
 			   android:layout_height="110dp"
@@ -59,5 +62,38 @@
 			android:layout_below="@id/lblTo"
 			android:layout_alignParentRight="true"
 			android:layout_marginLeft="10px"/>
+			
+		<EditText android:id="@+id/txtFromVal"
+			android:layout_height="70dp"
+			android:layout_width="110dp"
+			android:layout_below="@id/whlFrom"
+			android:layout_alignParentLeft="true"
+			android:layout_marginTop="15px"
+			android:textSize="35sp"
+			android:textStyle="bold"
+			android:visibility="invisible" />
+			
+		<TextView android:id="@+id/lblEq"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textSize="85sp"
+			android:textStyle="bold|italic"
+			android:textColor="#666666"
+			android:layout_below="@id/whlFrom"
+			android:layout_alignParentLeft="true"
+			android:layout_marginLeft="120sp"
+			android:layout_marginTop="-17sp"
+			android:text="="
+			android:visibility="invisible" />
+			
+		<EditText android:id="@+id/txtToVal"
+			android:layout_height="70dp"
+			android:layout_width="110dp"
+			android:layout_below="@id/whlTo"
+			android:layout_alignParentRight="true"
+			android:layout_marginTop="15px"
+			android:textSize="35sp"
+			android:textStyle="bold"
+			android:visibility="invisible" />
 	</RelativeLayout>
 </LinearLayout>

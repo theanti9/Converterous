@@ -13,6 +13,13 @@ public class ConvertTool {
 		this.fromNum = fromNum;
 	}
 	
+	public ConvertTool() {
+		this.toUnit = null;
+		this.fromUnit = null;
+		this.toNum = null;
+		this.fromNum = null;
+	}
+	
 	public Float convert() {
 		String name = this.fromUnit + "to" + this.toUnit;
 		try {
