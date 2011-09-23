@@ -27,7 +27,7 @@ public class UnitData {
 	public static String getAbv(String unit) {
 		return allUnitsAbv.get(allUnits.indexOf(unit));
 	}
-	
+
 	//returns unit name, given abbreviation
 	public static String getName(String abv) {
 		return allUnits.get(allUnitsAbv.indexOf(abv));

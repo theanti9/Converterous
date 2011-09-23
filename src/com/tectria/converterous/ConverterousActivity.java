@@ -6,38 +6,60 @@ import android.app.Activity;
 import android.content.Context;
 import android.media.*;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.*;
+import android.view.View.*;
+import android.view.inputmethod.EditorInfo;
+import android.widget.TextView.*;
+import android.view.KeyEvent;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.*;
+
+import java.text.*;
 
 public class ConverterousActivity extends Activity {
 	
     private boolean scrolling = false;
+    private int savedToItem = 0;
+    private int savedFromItem = 0;
     
-    //Display display = null;
-    
+    private LinearLayout llayout = null;
     private WheelView whlTo = null;
     private WheelView whlFrom = null;
     private WheelView whlType = null;
     private EditText txtFromVal = null;
     private EditText txtToVal = null;
     private TextView lblEq = null;
-    private MediaPlayer mp = null;
+    private TextView lblType = null;
+    private TextView lblTo = null;
+    private TextView lblFrom = null;
+    
+    private MediaPlayer click_mp = null;
+    private MediaPlayer select_mp = null;
+    private MediaPlayer slide_mp = null;
     private ConvertTool converter = null;
+    private NumberFormat dec = new DecimalFormat("#0.000");
+    InputMethodManager imm = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
-        mp = MediaPlayer.create(this, R.raw.click);
-        mp.setVolume(1.0f, 1.0f);
+        imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+        click_mp = MediaPlayer.create(this, R.raw.click);
+        select_mp = MediaPlayer.create(this, R.raw.select);
+        slide_mp = MediaPlayer.create(this, R.raw.slidein);
         
         converter = new ConvertTool();
-        //display = getWindowManager().getDefaultDisplay();
         
+        llayout = (LinearLayout)findViewById(R.id.llayout);
         txtFromVal = (EditText)findViewById(R.id.txtFromVal);
         txtToVal = (EditText)findViewById(R.id.txtToVal);
         lblEq = (TextView)findViewById(R.id.lblEq);
+        lblType = (TextView)findViewById(R.id.lblType);
+        lblTo = (TextView)findViewById(R.id.lblTo);
+        lblFrom = (TextView)findViewById(R.id.lblFrom);
         txtFromVal.setText("0");
         txtToVal.setText("0");
         
@@ -51,6 +73,7 @@ public class ConverterousActivity extends Activity {
 
         whlType.addChangingListener(new OnWheelChangedListener() {
 			public void onChanged(WheelView wheel, int oldVal, int newVal) {
+				lblType.setText("Converting " + UnitData.getTypeAtIndex(whlType.getCurrentItem()));
 				updateFromUnits(newVal);
 				playClick();
 			}
@@ -59,19 +82,28 @@ public class ConverterousActivity extends Activity {
         whlType.addScrollingListener(new OnWheelScrollListener() {
             public void onScrollingStarted(WheelView wheel) {
                 scrolling = true;
-                playClick();
                 hideResults();
             }
             public void onScrollingFinished(WheelView wheel) {
                 scrolling = false;
                 updateFromUnits(whlType.getCurrentItem());
+                showResults();
             }
         });
-        
-        whlType.setCurrentItem(0); //Set before defining whlFrom listeners to prevent unnecessary propagation
+
+        whlType.setOnTouchListener(new OnTouchListener() {
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				if(event.getAction() == MotionEvent.ACTION_DOWN) {
+					playSelect();
+				}
+				return false;
+			}
+        });
         
         whlFrom.addChangingListener(new OnWheelChangedListener() {
 			public void onChanged(WheelView wheel, int oldVal, int newVal) {
+				lblFrom.setText(UnitData.getUnitAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlFrom.getCurrentItem()));
 				updateToUnits(whlType.getCurrentItem());
 				playClick();
 			}
@@ -80,37 +112,169 @@ public class ConverterousActivity extends Activity {
         whlFrom.addScrollingListener(new OnWheelScrollListener() {
             public void onScrollingStarted(WheelView wheel) {
                 scrolling = true;
-                playClick();
-                hideResults();
             }
             public void onScrollingFinished(WheelView wheel) {
                 scrolling = false;
                 updateToUnits(whlType.getCurrentItem());
+                showResults();
             }
+        });
+        
+        whlFrom.setOnTouchListener(new OnTouchListener() {
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				if(event.getAction() == MotionEvent.ACTION_DOWN) {
+					playSelect();
+				}
+				return false;
+			}
         });
         
         whlTo.addChangingListener(new OnWheelChangedListener() {
 			public void onChanged(WheelView wheel, int oldVal, int newVal) {
+				lblTo.setText(UnitData.getUnitAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlTo.getCurrentItem()));
 				playClick();
+				
 			}
 		});
         
         whlTo.addScrollingListener(new OnWheelScrollListener() {
             public void onScrollingStarted(WheelView wheel) {
                 scrolling = true;
-                playClick();
             }
             public void onScrollingFinished(WheelView wheel) {
                 scrolling = false;
+                updateFromUnits(whlType.getCurrentItem());
                 showResults();
             }
         });
         
+        whlTo.setOnTouchListener(new OnTouchListener() {
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				if(event.getAction() == MotionEvent.ACTION_DOWN) {
+					playSelect();
+				}
+				return false;
+			}
+        });
+                
+        //Set up the result EditText view events
+        llayout.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if(v != txtFromVal) {
+            		txtFromVal.setText(Html.fromHtml(getNumeric(txtFromVal.getText().toString()) + "<small><small><sub>" + UnitData.getAbvAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlFrom.getCurrentItem()) + "</sub></small></small>"));
+            		imm.hideSoftInputFromWindow(llayout.getWindowToken(), 0);
+            		llayout.requestFocus();
+				}
+			}
+        });
+        
+        txtFromVal.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				playSelect();
+				playSlideIn();
+				txtFromVal.setText(getNumeric(txtFromVal.getText().toString()));
+				txtFromVal.setSelection(txtFromVal.getText().length());
+			}
+        });
+        
+        txtFromVal.setOnFocusChangeListener(new OnFocusChangeListener() {          
+            public void onFocusChange(View v, boolean hasFocus) {
+            	if(hasFocus) {
+            		playSelect();
+            		txtFromVal.setText(getNumeric(txtFromVal.getText().toString()));
+            		txtFromVal.setSelection(txtFromVal.getText().length());
+            	} else {
+            		txtFromVal.setText(Html.fromHtml(getNumeric(txtFromVal.getText().toString()) + "<small><small><sub>" + UnitData.getAbvAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlFrom.getCurrentItem()) + "</sub></small></small>"));
+            		imm.hideSoftInputFromWindow(llayout.getWindowToken(), 0);
+            		llayout.requestFocus();
+            	}
+            }
+        });
+        
+        txtToVal.setOnFocusChangeListener(new OnFocusChangeListener() {          
+            public void onFocusChange(View v, boolean hasFocus) {
+            	if(hasFocus) {
+            		playSelect();
+            		txtToVal.setSelection(0, txtToVal.getText().length());
+            	}
+            }
+        });
+        
+        whlType.setCurrentItem(0); //Set before defining whlFrom listeners to prevent unnecessary propagation
         whlFrom.setCurrentItem(0);
+        
+		showResults();
+    }
+    
+    @Override
+    public void onStart() {
+    	super.onStart();
+    	txtFromVal.setOnEditorActionListener(new OnEditorActionListener() {
+			public boolean onEditorAction(TextView view, int id, KeyEvent event) {
+				if(id == EditorInfo.IME_NULL) {
+					playSlideOut();
+					imm.hideSoftInputFromWindow(llayout.getWindowToken(), 0);
+            		llayout.requestFocus();
+				}
+				return true;
+    		}
+    	});
+    }
+    
+    public final String getNumeric(String str) {
+    	StringBuffer num = new StringBuffer();
+    	char c;
+    	int i;
+    	for(i=0;i<str.length();i++) {
+    		c = str.charAt(i);
+    		if(Character.isDigit(c)) {
+    			num.append(c);
+    		} else if(c == '.') {
+    			num.append(c);
+    		} else if(c == ',') {
+    			num.append(c);
+    		}
+    	}
+    	return num.toString();
     }
     
     public final void playClick() {
-    	mp.start();
+    	click_mp.release();
+    	click_mp = MediaPlayer.create(this, R.raw.click);
+    	click_mp.setVolume(0.1f, 0.1f);
+    	click_mp.start();
+    }
+    
+    public final void playSelect() {
+    	select_mp.release();
+    	select_mp = MediaPlayer.create(this, R.raw.select);
+    	select_mp.setVolume(0.1f, 0.1f);
+    	select_mp.start();
+    }
+    
+    public final void playResult() {
+    	select_mp.release();
+    	select_mp = MediaPlayer.create(this, R.raw.result);
+    	select_mp.setVolume(0.1f, 0.1f);
+    	select_mp.start();
+    }
+    
+    public final void playSlideIn() {
+    	slide_mp.release();
+    	slide_mp = MediaPlayer.create(this, R.raw.slidein);
+    	slide_mp.setVolume(0.1f, 0.1f);
+    	slide_mp.start();
+    }
+    
+    public final void playSlideOut() {
+    	slide_mp.release();
+    	slide_mp = MediaPlayer.create(this, R.raw.slideout);
+    	slide_mp.setVolume(0.1f, 0.1f);
+    	slide_mp.start();
     }
     
 	public final void hideResults() {
@@ -127,24 +291,36 @@ public class ConverterousActivity extends Activity {
 		
 		converter.setFromUnit(UnitData.getAbvAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlFrom.getCurrentItem()));
 		converter.setToUnit(UnitData.getAbvAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlTo.getCurrentItem() + offset));
-		converter.setFromNum(new Float(txtFromVal.getText().toString()));
+		converter.setFromNum(Float.parseFloat(getNumeric(txtFromVal.getText().toString())));
 		
-		txtToVal.setText(converter.convert().toString());
+		txtFromVal.setText(Html.fromHtml(getNumeric(txtFromVal.getText().toString()) + "<small><small><sub>" + UnitData.getAbvAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlFrom.getCurrentItem()) + "</sub></small></small>"));
+		txtToVal.setText(Html.fromHtml(dec.format(converter.convert()) + "<small><small><sub>" + UnitData.getAbvAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlTo.getCurrentItem() + offset) + "</sub></small></small>"));
 		
+		if(txtFromVal.getText().length() > 9) {
+			///////////////////
+		}
+		
+		playResult();
+		lblFrom.setText(UnitData.getUnitAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlFrom.getCurrentItem()));
+		lblTo.setText(UnitData.getUnitAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlTo.getCurrentItem() + offset));
+		lblType.setText("Converting " + UnitData.getTypeAtIndex(whlType.getCurrentItem()));
+		txtFromVal.setPadding(txtFromVal.getPaddingLeft(), 2, txtFromVal.getPaddingRight(), 6);
 		txtFromVal.setVisibility(View.VISIBLE);
 		txtToVal.setVisibility(View.VISIBLE);
 		lblEq.setVisibility(View.VISIBLE);
 	}
     
     public final void updateFromUnits(int type) {
+    	savedFromItem = whlFrom.getCurrentItem();
     	whlFrom.setViewAdapter(new FromUnitAdapter(this, UnitData.getTypeAtIndex(type)));
-    	whlFrom.setCurrentItem(0);
+    	whlFrom.setCurrentItem(savedFromItem);
     	updateToUnits(type);
     }
     
     public final void updateToUnits(int type) {
+    	savedToItem = whlTo.getCurrentItem();
     	whlTo.setViewAdapter(new ToUnitAdapter(this, UnitData.getTypeAtIndex(type)));
-    	whlTo.setCurrentItem(0);
+    	whlTo.setCurrentItem(savedToItem);
     	if(!scrolling) {
     		showResults();
     	}
@@ -214,6 +390,7 @@ public class ConverterousActivity extends Activity {
         
     	public String type = null;
     	public boolean avoided = false;
+    	public int avoided_index = 0;
     	
     	protected ToUnitAdapter(Context context, String type) {
 			super(context, R.layout.wheelitem, NO_RESOURCE);
@@ -236,13 +413,18 @@ public class ConverterousActivity extends Activity {
         protected CharSequence getItemText(int index) {
         	
         	if(this.avoided) {
-        		++index;
+        		if(index < avoided_index) {
+        			this.avoided = false;
+        		} else {
+        			++index;
+        		}
         	}
         	
         	String[] item = UnitData.getUnitAtIndex(this.type, index, whlFrom.getCurrentItem());
         	
         	if(item[1] == "1") { 
         		this.avoided = true;
+        		this.avoided_index = index;
         	}
         	
             return item[0];
