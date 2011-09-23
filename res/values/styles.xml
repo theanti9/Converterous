@@ -12,6 +12,8 @@
 	</style>
 	
 	<style name="WheelView.Unit">
+		<item name="android:layout_weight">1</item>
+		<item name="android:layout_gravity">center_horizontal</item>
 		<item name="android:layout_width">150sp</item>
 		<item name="android:layout_marginLeft">5sp</item>
 		<item name="android:layout_marginRight">5sp</item>
@@ -33,6 +35,7 @@
     </style>
     
     <style name="Text.SmallTitle">
+    	<item name="android:layout_weight">1</item>
         <item name="android:textSize">24sp</item>
         <item name="android:layout_width">150sp</item>
 		<item name="android:gravity">center</item>
