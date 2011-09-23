@@ -36,7 +36,6 @@ public class ConverterousActivity extends Activity {
     
     private MediaPlayer click_mp = null;
     private MediaPlayer select_mp = null;
-    private MediaPlayer slide_mp = null;
     private ConvertTool converter = null;
     private NumberFormat dec = new DecimalFormat("#0.000");
     InputMethodManager imm = null;
@@ -49,7 +48,6 @@ public class ConverterousActivity extends Activity {
         imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
         click_mp = MediaPlayer.create(this, R.raw.click);
         select_mp = MediaPlayer.create(this, R.raw.select);
-        slide_mp = MediaPlayer.create(this, R.raw.slidein);
         
         converter = new ConvertTool();
         
@@ -175,7 +173,6 @@ public class ConverterousActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				playSelect();
-				playSlideIn();
 				txtFromVal.setText(getNumeric(txtFromVal.getText().toString()));
 				txtFromVal.setSelection(txtFromVal.getText().length());
 			}
@@ -216,7 +213,6 @@ public class ConverterousActivity extends Activity {
     	txtFromVal.setOnEditorActionListener(new OnEditorActionListener() {
 			public boolean onEditorAction(TextView view, int id, KeyEvent event) {
 				if(id == EditorInfo.IME_NULL) {
-					playSlideOut();
 					imm.hideSoftInputFromWindow(llayout.getWindowToken(), 0);
             		llayout.requestFocus();
 				}
@@ -261,20 +257,6 @@ public class ConverterousActivity extends Activity {
     	select_mp = MediaPlayer.create(this, R.raw.result);
     	select_mp.setVolume(0.1f, 0.1f);
     	select_mp.start();
-    }
-    
-    public final void playSlideIn() {
-    	slide_mp.release();
-    	slide_mp = MediaPlayer.create(this, R.raw.slidein);
-    	slide_mp.setVolume(0.1f, 0.1f);
-    	slide_mp.start();
-    }
-    
-    public final void playSlideOut() {
-    	slide_mp.release();
-    	slide_mp = MediaPlayer.create(this, R.raw.slideout);
-    	slide_mp.setVolume(0.1f, 0.1f);
-    	slide_mp.start();
     }
     
 	public final void hideResults() {
