@@ -4,35 +4,53 @@ import java.lang.reflect.Method;
 public class ConvertTool {
 	private String toUnit;
 	private String fromUnit;
-	private Float toNum;
-	private Float fromNum;
+	private float toNum;
+	private float fromNum;
 	public ConvertTool(String toUnit, String fromUnit, Float fromNum) {
 		this.toUnit = toUnit;
 		this.fromUnit = fromUnit;
-		this.toNum = null;
+		this.toNum = 0.0f;
 		this.fromNum = fromNum;
 	}
 	
-	public Float convert() {
+	public ConvertTool() {
+		this.toUnit = null;
+		this.fromUnit = null;
+		this.toNum = 0.0f;
+		this.fromNum = 0.0f;
+	}
+	
+	public float convert() {
 		String name = this.fromUnit + "to" + this.toUnit;
 		try {
-			Method method = this.getClass().getMethod(name, Float.class);
-			this.toNum = (Float)method.invoke(fromNum);
+			//Method method = this.getClass().getMethod(name, Float.class);
+			Class cla = Class.forName("com.tectria.converterous.ConvertTool");
+			Class partypes[] = new Class[1]; 
+			partypes[0] = Float.TYPE;
+			Method method = cla.getMethod(name, partypes);
+			ConvertTool invoke = this;
+			Object arg[] = new Object[1];
+			arg[0] = this.fromNum;
+			Object object = method.invoke(invoke, arg);
+			this.toNum = ((Float)object).floatValue();
+			//this.toNum = ((Float)method.invoke(fromNum)).floatValue();
 			return this.toNum;
 		} catch (NoSuchMethodException e) {
-			return new Float(0.0);
+			return 0.0f;
 		} catch (SecurityException e) {
-			return new Float(0.0);
+			return 0.0f;
 		} catch (IllegalAccessException e) {
-			return new Float(0.0);
+			return 0.0f;
 		} catch (IllegalArgumentException e) {
-			return new Float(0.0);
+			return 0.0f;
 		} catch (InvocationTargetException e) {
-			return new Float(0.0);
+			return 0.0f;
+		} catch (ClassNotFoundException e) {
+			return 0.0f;
 		}
 	}
 	
-	public void setFromNum(Float n) {
+	public void setFromNum(float n) {
 		this.fromNum = n;
 	}
 	
@@ -49,283 +67,356 @@ public class ConvertTool {
 		this.toUnit = this.fromUnit;
 		this.fromUnit = tmp;
 	}
+	
+	/*
+	 * MASS
+	 */
+	
+	/*
+	 * VOLUME
+	 */
+	
+	//Pints to quarts
+	public Float pttoqt(float i) {
+		return i/2f;
+	}
+	
+	//Pints to gallons
+	public float pttogal(float i) {
+		return i/8f;
+	}
+	
+	//Quarts to pints
+	public float qttopt(float i) {
+		return i*2f;
+	}
+	
+	//Quarts to gallons
+	public float qttogal(float i) {
+		return i/4f;
+	}
 
+	//Gallons to quarts
+	public float galtoqt(float i) {
+		return i*4f;
+	}
+	
+	//Gallons to pints
+	public float galtopt(float i) {
+		return i*8f;
+	}
+	
+	/*
+	 * DISTANCE
+	 */
+	
 	// Inches to Feet
-	public Float intoft(Float i) {
-		return new Float(i/12);
+	public float intoft(float i) {
+		return i/12f;
 	}
 	
 	// Feet to Inches
-	public Float fttoin(Float i) {
-		return new Float(i*12);
+	public float fttoin(float i) {
+		return i*12f;
 	}
 	
 	// Centimeters to Inches
-	public Float cmtoin(Float i) {
-		return new Float(i*0.3937008);
+	public float cmtoin(float i) {
+		return i*0.3937008f;
 	}
 	
 	// Inches to Centimeters
-	public Float intocm(Float i) {
-		return new Float(i/0.3937008);
+	public float intocm(float i) {
+		return i/0.3937008f;
 	}
 	
 	// Centimeters to Feet
-	public Float cmtoft(Float i) {
-		return new Float(i/30.48);
+	public float cmtoft(float i) {
+		return i/30.48f;
 	}
 	
 	// Feet to Centimeters
-	public Float fttocm(Float i) {
-		return new Float(i*30.48);
+	public float fttocm(float i) {
+		return i*30.48f;
 	}
 	
 	// Inches to Millimeters
-	public Float intomm(Float i) {
-		return new Float(i*25.4);
+	public float intomm(float i) {
+		return i*25.4f;
 	}
 	
 	// Millimeters to Inches
-	public Float mmtoin(Float i) {
-		return new Float(i/25.4);
+	public float mmtoin(float i) {
+		return i/25.4f;
 	}
 	
 	// Millimeters to Centimeters
-	public Float mmtocm(Float i) {
-		return new Float(i/10);
+	public float mmtocm(float i) {
+		return i/10f;
 	}
 	
 	// Centimeters to Millimeters
-	public Float cmtomm(Float i) {
-		return new Float(i*10);
+	public float cmtomm(float i) {
+		return i*10f;
 	}
 	
 	// Millimeters to Feet
-	public Float mmtoft(Float i) {
-		return new Float(i/304.8);
+	public float mmtoft(float i) {
+		return i/304.8f;
 	}
 	
 	// Feet to Millimeters
-	public Float fttommm(Float i) {
-		return new Float(i*304.8);
+	public float fttommm(float i) {
+		return i*304.8f;
 	}
 	
 	// Mile to Feet
-	public Float mitoft(Float i) {
-		return new Float(i*5280);
+	public float mitoft(float i) {
+		return i*5280f;
 	}
 	
 	// Feet to Mile
-	public Float fttomi(Float i) {
-		return new Float(i/5280);
+	public float fttomi(float i) {
+		return i/5280f;
 	}
 	
 	// Miles to Inches
-	public Float mitoin(Float i) {
-		return new Float(i*63360);
+	public float mitoin(float i) {
+		return i*63360f;
 	}
 	
 	// Inches to Miles
-	public Float intomi(Float i) {
-		return new Float(i/63360);
+	public float intomi(float i) {
+		return i/63360f;
 	}
 	
 	// Miles to Centimeters
-	public Float mitocm(Float i) {
-		return new Float(i*160934.4);
+	public float mitocm(float i) {
+		return i*160934.4f;
 	}
 	
 	// Miles to Millimeters
-	public Float mitomm(Float i) {
-		return new Float(i*1609344);
+	public float mitomm(float i) {
+		return i*1609344f;
 	}
 	
 	// Millimeters to Miles
-	public Float mmtomi(Float i) {
-		return new Float(i/1609344);
+	public float mmtomi(float i) {
+		return i/1609344f;
 	}
 	
 	// Meters to Centimeters
-	public Float mtocm(Float i) {
-		return new Float(i*100);
+	public float mtocm(float i) {
+		return i*100f;
 	}
 	
 	// Centimeters to Meters
-	public Float cmtom(Float i) {
-		return new Float(i/100);
+	public float cmtom(float i) {
+		return i/100f;
 	}
 	
 	// Meters to Feet
-	public Float mtoft(Float i) {
-		return new Float(i*3.280839895);
+	public float mtoft(float i) {
+		return i*3.280839895f;
 	}
 	
 	// Feet to Meters
-	public Float fttom(Float i) {
-		return new Float(i/3.280839895);
+	public float fttom(float i) {
+		return i/3.280839895f;
 	}
 	
 	// Meters to Inches
-	public Float mtoin(Float i) {
-		return new Float(i*39.37007874);
+	public float mtoin(float i) {
+		return i*39.37007874f;
 	}
 	
 	// Inches to Meters
-	public Float intom(Float i) {
-		return new Float(i/39.37007874);
+	public float intom(float i) {
+		return i/39.37007874f;
 	}
 
 	// Meters to Miles
-	public Float mtomi(Float i) {
-		return new Float(i/1609.344);
+	public float mtomi(float i) {
+		return i/1609.344f;
 	}
 	
 	// Miles to Meters
-	public Float mitom(Float i) {
-		return new Float(i*1609.344);
+	public float mitom(float i) {
+		return i*1609.344f;
 	}
 	
 	// Meters to Millimeters
-	public Float mtomm(Float i) {
-		return new Float(i*1000);
+	public float mtomm(float i) {
+		return i*1000f;
 	}
 	
 	// Millimeters to meters
-	public Float mmtom(Float i) {
-		return new Float(i/1000);
+	public float mmtom(float i) {
+		return i/1000f;
 	}
 	
 	// Kilometers to Centimeters
-	public Float kmtocm(Float i) {
-		return new Float(i*100000);
+	public float kmtocm(float i) {
+		return i*100000f;
 	}
 	
 	// Centimeters to kilometers
-	public Float cmtokm(Float i) {
-		return new Float(i/100000);
+	public float cmtokm(float i) {
+		return i/100000f;
 	}
 	
 	// Kilometers to Feet
-	public Float kmtoft(Float i) {
-		return new Float(i*3280.839895);
+	public float kmtoft(float i) {
+		return i*3280.839895f;
 	}
 	
 	// Feet to Kilometers
-	public Float fttokm(Float i) {
-		return new Float(i/3280.839895);
+	public float fttokm(float i) {
+		return i/3280.839895f;
 	}
 	
 	// Kilometers to Inches
-	public Float kmtoin(Float i) {
-		return new Float(i*39370.07874);
+	public float kmtoin(float i) {
+		return i*39370.07874f;
 	}
 
 	// Inches to Kilometers
-	public Float intokm(Float i) {
-		return new Float(i/39370.07874);
+	public float intokm(float i) {
+		return i/39370.07874f;
 	}
 	
 	// Kilometers to Meters
-	public Float kmtom(Float i) {
-		return new Float(i*1000);
+	public float kmtom(float i) {
+		return i*1000f;
 	}
 	
 	// Meters to Kilometers
-	public Float mtokm(Float i) {
-		return new Float(i/1000);
+	public float mtokm(float i) {
+		return i/1000f;
 	}
 
 	// Kilometers to Miles
-	public Float kmtomi(Float i) {
-		return new Float(i/1.609344);
+	public float kmtomi(float i) {
+		return i/1.609344f;
 	}
 	
 	// Miles to Kilometers
-	public Float mitokm(Float i) {
-		return new Float(i*1.609344);
+	public float mitokm(float i) {
+		return i*1.609344f;
 	}
 	
 	// Kilometers to Millimeters
-	public Float kmtomm(Float i) {
-		return new Float(i*1000000);
+	public float kmtomm(float i) {
+		return i*1000000f;
 	}
 	
 	// Millimeters to kilometers
-	public Float mmtokm(Float i) {
-		return new Float(i/1000000);
+	public float mmtokm(float i) {
+		return i/1000000f;
 	}
 
 	// Yards to Centimeters
-	public Float ydtocm(Float i) {
-		return new Float(i*91.44);
+	public float ydtocm(float i) {
+		return i*91.44f;
 	}
 	
 	// Centimeters to Yards
-	public Float cmtoyd(Float i) {
-		return new Float(i/91.44);
+	public float cmtoyd(float i) {
+		return i/91.44f;
 	}
 	
 	// Yards to Feet
-	public Float ydtoft(Float i) {
-		return new Float(i*3);
+	public float ydtoft(float i) {
+		return i*3f;
 	}
 	
 	// Feet to yards
-	public Float fttoyd(Float i) {
-		return new Float(i/3);
+	public float fttoyd(float i) {
+		return i/3f;
 	}
 	
 	// Yards to Inches
-	public Float ydtoin(Float i) {
-		return new Float(i*36);
+	public float ydtoin(float i) {
+		return i*36f;
 	}
 	
 	// Inches to Yards
-	public Float intoyd(Float i) {
-		return new Float(i/36);
+	public float intoyd(float i) {
+		return i/36f;
 	}
 	
 	// Yards to Kilometers
-	public Float ydtokm(Float i) {
-		return new Float(i/1093.6132983);
+	public float ydtokm(float i) {
+		return i/1093.6132983f;
 	}
 	
 	// Kilometers to Yards
-	public Float kmtoyd(Float i) {
-		return new Float(i*1093.6132983);
+	public float kmtoyd(float i) {
+		return i*1093.6132983f;
 	}
 	
 	// Yards to Meters
-	public Float ydtom(Float i) {
-		return new Float(i/1.0936132983);
+	public float ydtom(float i) {
+		return i/1.0936132983f;
 	}
 	
 	// Meters to Yards
-	public Float mtoyd(Float i) {
-		return new Float(i*1.0936132983);
+	public float mtoyd(float i) {
+		return i*1.0936132983f;
 	}
 
 	// Yards to Miles
-	public Float ydtomi(Float i) {
-		return new Float(i/1760);
+	public float ydtomi(float i) {
+		return i/1760f;
 	}
 	
 	// Miles to Yards
-	public Float mitoyd(Float i) {
-		return new Float(i*1760);
+	public float mitoyd(float i) {
+		return i*1760f;
 	}
 
 	// Yards to Millimeters
-	public Float ydtomm(Float i) {
-		return new Float(i*914.4);
+	public float ydtomm(float i) {
+		return i*914.4f;
 	}
 	
 	// Millimeters to yards
-	public Float mmtoyd(Float i) {
-		return new Float(i/914.4);
+	public float mmtoyd(float i) {
+		return i/914.4f;
 	}
 	
+	/*
+	 * TIME
+	 */
 	
+	//Seconds to hours
+	public float stoh(float i) {
+		return i/3600f;
+	}
 	
+	//Seconds to minutes
+	public float stomin(float i) {
+		return i/60f;
+	}
+	
+	//Minutes to seconds
+	public float mintos(float i) {
+		return i*60f;
+	}
+		
+	//Minutes to hours
+	public float mintoh(float i) {
+		return i/60f;
+	}
+	
+	//Hours to seconds
+	public float htos(float i) {
+		return i*3600f;
+	}
+	
+	//Hours to minutes
+	public float htomin(float i) {
+		return i*60f;
+	}
 	
 }

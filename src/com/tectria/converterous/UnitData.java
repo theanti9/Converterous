@@ -27,7 +27,7 @@ public class UnitData {
 	public static String getAbv(String unit) {
 		return allUnitsAbv.get(allUnits.indexOf(unit));
 	}
-	
+
 	//returns unit name, given abbreviation
 	public static String getName(String abv) {
 		return allUnits.get(allUnitsAbv.indexOf(abv));
@@ -78,6 +78,23 @@ public class UnitData {
 				return allUnits.get(index);
 		}
 	}
+	
+	//returns unit abbreviation, given type and index
+		public static String getAbvAtIndex(String type, int index) {
+			final char typechar = type.charAt(0);
+			switch(typechar) {
+				case 'M':
+					return massUnitsAbv.get(index);
+				case 'V':
+					return volumeUnitsAbv.get(index);
+				case 'D':
+					return distanceUnitsAbv.get(index);
+				case 'T':
+					return timeUnitsAbv.get(index);
+				default:
+					return allUnitsAbv.get(index);
+			}
+		}
 	
 	//returns type name, given index
 	public static String getTypeAtIndex(int index) {

@@ -6,12 +6,6 @@
   android:orientation="horizontal">
     
   <TextView android:id="@+id/wheelitem"
-      android:layout_gravity="center_vertical"
-	  android:layout_width="wrap_content"
-	  android:layout_height="wrap_content"
-	  android:text=""
-	  android:layout_marginLeft="6dp"
-	  android:textSize="18sp"
-	  android:textColor="#F000"
-	  android:textStyle="bold"/>
+      style="@style/Text.Unit.WheelItem"
+	  android:text="" />
 </LinearLayout>

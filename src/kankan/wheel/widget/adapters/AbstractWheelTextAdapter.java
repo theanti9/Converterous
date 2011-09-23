@@ -131,6 +131,10 @@ public abstract class AbstractWheelTextAdapter extends AbstractWheelAdapter {
         return itemResourceId;
     }
     
+    public boolean thing() {
+    	return true;
+    }
+    
     /**
      * Sets resource Id for items views
      * @param itemResourceId the resource Id to set

@@ -2,62 +2,64 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_height="fill_parent"
+	android:layout_width="fill_parent"
+	android:gravity="center_horizontal"
 	android:orientation="vertical"
 	android:background="@drawable/layout_bg"
-	android:layout_width="fill_parent">
+	android:id="@+id/llayout"
+	android:focusable="true"
+	android:focusableInTouchMode="true"
+	android:nextFocusUp="@+id/llayout"
+	android:nextFocusLeft="@+id/llayout">
 	
-	<TextView
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_marginTop="24dp"
-		android:layout_gravity="center_horizontal"
-		android:textSize="20sp"
-		android:text="Select a unit type"/>
+	<TextView android:id="@+id/lblType"
+		android:text=""
+		style="@style/Text.BigTitle" />
 	
-	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-		android:layout_height="wrap_content"
-		android:layout_gravity="center_horizontal"
+	<kankan.wheel.widget.WheelView android:id="@+id/whlType"
+		style="@style/WheelView.Type" />
+	
+	<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_height="fill_parent"
 		android:layout_width="fill_parent"
-		android:paddingLeft="12dp"
-		android:paddingRight="12dp"
-		android:paddingTop="4dp"
-		android:layout_marginTop="8dp"
 		android:orientation="horizontal">
-	
-		<kankan.wheel.widget.WheelView android:id="@+id/whlType"
-			   android:layout_height="110dp"
-			   android:layout_width="fill_parent"
-			   android:layout_gravity="center_vertical"
-			   android:layout_weight="1"/>
 		
-		<TextView android:id="@+id/lblTo"
-			android:layout_height="wrap_content"
-			android:layout_width="wrap_content"
-			android:layout_below="@id/whlType"
-			android:layout_alignParentRight="true"
-			android:layout_marginTop="10px"
-			android:text="Convert from..." />
+		<TableRow>
+			<LinearLayout layout_width="fill_parent" layout_span="3">
+				<TextView android:id="@+id/lblFrom"
+					style="@style/Text.SmallTitle"
+					android:text="" />
+			
+				<TextView android:id="@+id/lblTo"
+					style="@style/Text.SmallTitle"
+					android:text="" />
+			</LinearLayout>
+		</TableRow>
 		
-		<TextView android:id="@+id/lblFrom"
-			android:layout_height="wrap_content"
-			android:layout_width="wrap_content"
-			android:layout_below="@id/whlType"
-			android:layout_alignParentLeft="true"
-			android:layout_marginTop="10px"
-			android:text="Convert to..." />
+		<TableRow>
+			<LinearLayout layout_width="fill_parent" layout_span="3">
+				<kankan.wheel.widget.WheelView android:id="@+id/whlFrom"
+				style="@style/WheelView.Unit" />
+			
+				<kankan.wheel.widget.WheelView android:id="@+id/whlTo"
+					style="@style/WheelView.Unit" />
+			</LinearLayout>
+		</TableRow>
 		
-		<kankan.wheel.widget.WheelView android:id="@+id/whlFrom"
-			   android:layout_height="110dp"
-			   android:layout_width="140dp"
-			   android:layout_below="@id/lblFrom"
-			   android:layout_alignParentLeft="true"
-			   android:layout_marginRight="10px"/>
-		
-		<kankan.wheel.widget.WheelView android:id="@+id/whlTo"
-			android:layout_height="110dp"
-			android:layout_width="140dp"
-			android:layout_below="@id/lblTo"
-			android:layout_alignParentRight="true"
-			android:layout_marginLeft="10px"/>
-	</RelativeLayout>
+		<TableRow>
+			<LinearLayout layout_width="fill_parent" layout_span="3">
+				<EditText android:id="@+id/txtFromVal"
+					style="@style/Text.Unit.Result"
+					android:inputType="number"
+					android:digits="1234567890.," />
+				
+				<TextView android:id="@+id/lblEq"
+				style="@style/Text.Equals"
+				android:text="=" />
+					
+				<EditText android:id="@+id/txtToVal"
+					style="@style/Text.Unit.Result" />
+			</LinearLayout>
+		</TableRow>
+	</TableLayout>
 </LinearLayout>
