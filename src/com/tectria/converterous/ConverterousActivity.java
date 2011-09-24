@@ -23,13 +23,15 @@ public class ConverterousActivity extends Activity {
     private int savedToItem = 0;
     private int savedFromItem = 0;
     private int offset;
+    private int fromTextSize;
+    private int toTextSize;
     
     private LinearLayout llayout = null;
     private WheelView whlTo = null;
     private WheelView whlFrom = null;
     private WheelView whlType = null;
-    private EditText txtFromVal = null;
-    private EditText txtToVal = null;
+    private FontResizingEditText txtFromVal = null;
+    private FontResizingEditText txtToVal = null;
     private TextView lblEq = null;
     private TextView lblType = null;
     private TextView lblTo = null;
@@ -53,8 +55,8 @@ public class ConverterousActivity extends Activity {
         converter = new ConvertTool();
         
         llayout = (LinearLayout)findViewById(R.id.llayout);
-        txtFromVal = (EditText)findViewById(R.id.txtFromVal);
-        txtToVal = (EditText)findViewById(R.id.txtToVal);
+        txtFromVal = (FontResizingEditText)findViewById(R.id.txtFromVal);
+        txtToVal = (FontResizingEditText)findViewById(R.id.txtToVal);
         lblEq = (TextView)findViewById(R.id.lblEq);
         lblType = (TextView)findViewById(R.id.lblType);
         lblTo = (TextView)findViewById(R.id.lblTo);
@@ -282,11 +284,11 @@ public class ConverterousActivity extends Activity {
 		if(whlTo.getCurrentItem() >= whlFrom.getCurrentItem()) {
 			offset = 1;
 		}
-		float fromnum;
+		double fromnum;
 		if(getNumeric(txtFromVal.getText().toString()) == "") {
-			fromnum = 0.0f;
+			fromnum = 0.0;
 		} else {
-			fromnum = Float.parseFloat(getNumeric(txtFromVal.getText().toString()));
+			fromnum = Double.parseDouble(getNumeric(txtFromVal.getText().toString()));
 		}
 		converter.setFromUnit(UnitData.getAbvAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlFrom.getCurrentItem()));
 		converter.setToUnit(UnitData.getAbvAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlTo.getCurrentItem() + offset));
@@ -302,14 +304,14 @@ public class ConverterousActivity extends Activity {
 		
 		converter.setFromUnit(UnitData.getAbvAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlFrom.getCurrentItem()));
 		converter.setToUnit(UnitData.getAbvAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlTo.getCurrentItem() + offset));
-		converter.setFromNum(Float.parseFloat(getNumeric(txtFromVal.getText().toString())));
+		converter.setFromNum(Double.parseDouble(getNumeric(txtFromVal.getText().toString())));
 		
 		txtFromVal.setText(Html.fromHtml(getNumeric(txtFromVal.getText().toString()) + "<small><small><sub>" + UnitData.getAbvAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlFrom.getCurrentItem()) + "</sub></small></small>"));
 		txtToVal.setText(Html.fromHtml(dec.format(converter.convert()) + "<small><small><sub>" + UnitData.getAbvAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlTo.getCurrentItem() + offset) + "</sub></small></small>"));
 		
-		/*if(txtFromVal.getText().length() > 9) {
-			///////////////////
-		}*/
+		if(txtFromVal.getText().length() > 9) {
+			
+		}
 		
 		playResult();
 		lblFrom.setText(UnitData.getUnitAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlFrom.getCurrentItem()));
@@ -360,7 +362,7 @@ public class ConverterousActivity extends Activity {
         
         @Override
         protected CharSequence getItemText(int index) {
-            return UnitData.getTypeAtIndex(index);
+        	return UnitData.getTypeAtIndex(index);
         }
     }
     

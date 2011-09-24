@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure
+END
+DecimalMeasure.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/DecimalMeasure.java
+END
+Measurable.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/Measurable.java
+END
+Measure.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/Measure.java
+END
+VectorMeasure.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/VectorMeasure.java
+END
+MeasureFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/MeasureFormat.java
+END
+package.html
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/package.html
+END

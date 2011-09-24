@@ -1,0 +1,275 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity
+END
+AmountOfSubstance.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/AmountOfSubstance.java
+END
+DynamicViscosity.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/DynamicViscosity.java
+END
+AngularAcceleration.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/AngularAcceleration.java
+END
+ElectricCapacitance.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/ElectricCapacitance.java
+END
+RadiationDoseEffective.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/RadiationDoseEffective.java
+END
+RadioactiveActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/RadioactiveActivity.java
+END
+Pressure.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/Pressure.java
+END
+LuminousFlux.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/LuminousFlux.java
+END
+Quantity.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/Quantity.java
+END
+SolidAngle.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/SolidAngle.java
+END
+LuminousIntensity.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/LuminousIntensity.java
+END
+DataRate.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/DataRate.java
+END
+MagneticFluxDensity.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/MagneticFluxDensity.java
+END
+MagneticFlux.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/MagneticFlux.java
+END
+Angle.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/Angle.java
+END
+Energy.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/Energy.java
+END
+VolumetricDensity.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/VolumetricDensity.java
+END
+Force.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/Force.java
+END
+Velocity.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/Velocity.java
+END
+Illuminance.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/Illuminance.java
+END
+Frequency.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/Frequency.java
+END
+ElectricConductance.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/ElectricConductance.java
+END
+Mass.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/Mass.java
+END
+ElectricCharge.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/ElectricCharge.java
+END
+MassFlowRate.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/MassFlowRate.java
+END
+Volume.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/Volume.java
+END
+AngularVelocity.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/AngularVelocity.java
+END
+Area.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/Area.java
+END
+ElectricPotential.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/ElectricPotential.java
+END
+ElectricResistance.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/ElectricResistance.java
+END
+Dimensionless.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/Dimensionless.java
+END
+package.html
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/package.html
+END
+Torque.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/Torque.java
+END
+Length.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/Length.java
+END
+KinematicViscosity.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/KinematicViscosity.java
+END
+Duration.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/Duration.java
+END
+RadiationDoseAbsorbed.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/RadiationDoseAbsorbed.java
+END
+ElectricInductance.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/ElectricInductance.java
+END
+Acceleration.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/Acceleration.java
+END
+CatalyticActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/CatalyticActivity.java
+END
+Power.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/Power.java
+END
+DataAmount.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/DataAmount.java
+END
+ElectricCurrent.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/ElectricCurrent.java
+END
+Temperature.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/Temperature.java
+END
+VolumetricFlowRate.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/quantity/VolumetricFlowRate.java
+END
