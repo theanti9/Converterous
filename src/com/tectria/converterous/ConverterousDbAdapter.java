@@ -2,6 +2,7 @@ package com.tectria.converterous;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 
@@ -40,6 +41,10 @@ public class ConverterousDbAdapter {
 		// return whether the delete worked by seeing if the return value (num of rows effected)
 		// of database.delete() is > 0
 		return database.delete(DATABASE_TABLE, KEY_ROWID + "=" + rowId, null) > 0;
+	}
+	
+	public Cursor getFavorites() {
+		return database.query(DATABASE_TABLE, null, null, null, null, null, null);
 	}
 	
 }
