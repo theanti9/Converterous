@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/converter
+END
+AddConverter.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/converter/AddConverter.java
+END
+RationalConverter.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/converter/RationalConverter.java
+END
+ConversionException.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/converter/ConversionException.java
+END
+MultiplyConverter.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/converter/MultiplyConverter.java
+END
+UnitConverter.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/converter/UnitConverter.java
+END
+LogConverter.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/converter/LogConverter.java
+END
+package.html
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/jscience~svn/!svn/ver/54/branches/V4/src/javax/measure/converter/package.html
+END

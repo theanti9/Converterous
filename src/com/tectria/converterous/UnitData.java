@@ -15,6 +15,9 @@ public class UnitData {
 			case 'D':
 				return distanceUnits.size();
 			case 'T':
+				if(type == "Temperature") {
+					return temperatureUnits.size();
+				}
 				return timeUnits.size();
 			case 'U':
 				return unitTypes.size();
@@ -56,6 +59,9 @@ public class UnitData {
 				case 'D':
 					return new String[] {distanceUnits.get(index), avoided};
 				case 'T':
+					if(type == "Temperature") {
+						return new String[] {temperatureUnits.get(index), avoided};
+					}
 					return new String[] {timeUnits.get(index), avoided};
 				default:
 					return new String[] {allUnits.get(index), avoided};
@@ -73,6 +79,9 @@ public class UnitData {
 			case 'D':
 				return distanceUnits.get(index);
 			case 'T':
+				if(type == "Temperature") {
+					return temperatureUnits.get(index);
+				}
 				return timeUnits.get(index);
 			default:
 				return allUnits.get(index);
@@ -90,6 +99,9 @@ public class UnitData {
 				case 'D':
 					return distanceUnitsAbv.get(index);
 				case 'T':
+					if(type == "Temperature") {
+						return temperatureUnitsAbv.get(index);
+					}
 					return timeUnitsAbv.get(index);
 				default:
 					return allUnitsAbv.get(index);
@@ -112,6 +124,9 @@ public class UnitData {
 			case 'D':
 				return distanceUnits;
 			case 'T':
+				if(type == "Temperature") {
+					return temperatureUnits;
+				}
 				return timeUnits;
 			default:
 				return allUnits;
@@ -129,6 +144,9 @@ public class UnitData {
 				case 'D':
 					return distanceUnitsAbv;
 				case 'T':
+					if(type == "Temperature") {
+						return temperatureUnitsAbv;
+					}
 					return timeUnitsAbv;
 				default:
 					return allUnitsAbv;
@@ -142,7 +160,8 @@ public class UnitData {
 		"Mass",
 		"Volume",
 		"Distance",
-		"Time"
+		"Time",
+		"Temperature"
 	));
 	
 	
@@ -161,7 +180,10 @@ public class UnitData {
 		"gallon",
 		"inch",
 		"foot",
-		"mile"
+		"mile",
+		"celsius",
+		"fahrenheit",
+		"kelvin"
 	));
 	
 	/*
@@ -180,7 +202,10 @@ public class UnitData {
 		"gal",
 		"in",
 		"ft",
-		"mi"
+		"mi",
+		"°C",
+		"°F",
+		"°K"
 	));
 	
 	/*
@@ -198,8 +223,26 @@ public class UnitData {
 		"Volume",
 		"Distance",
 		"Distance",
-		"Distance"
+		"Distance",
+		"Temperature",
+		"Temperature",
+		"Temperature"
 	));
+	
+	/*
+	 * Temperature Units
+	 */
+	private static final ArrayList<String> temperatureUnits = new ArrayList<String>(Arrays.asList(
+			"Fahrenheit",
+			"Celcius",
+			"Kelvin"
+		));
+	
+	private static final ArrayList<String> temperatureUnitsAbv = new ArrayList<String>(Arrays.asList(
+			"°F",
+			"°C",
+			"°K"
+		));
 	
 	/*
 	 * Mass Units
