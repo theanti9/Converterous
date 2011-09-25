@@ -1,0 +1,664 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="FOOT">
+	     A unit of length equal to 0.3048 metres 
+	     (standard name ft).
+	</string>
+	
+	<string name="YARD">
+	     A unit of length equal to 0.9144 metres
+	     (standard name yd).
+	</string>
+	
+	<string name="INCH">
+	     A unit of length equal to 0.0254 metres
+	     (standard name in).
+	</string>
+	
+	<string name="MILE">
+	     A unit of length equal to 1609.344 metres
+	     (standard name mi).
+	</string>
+	
+	<string name="NAUTICAL_MILE">
+	     A unit of length equal to 1852.0 metres
+	     (standard name nmi).
+	</string>
+	
+	<string name="ANGSTROM">
+	     A unit of length equal to 1E-10 metres
+	     (standard name Å).
+	</string>
+	
+	<string name="ASTRONOMICAL_UNIT">
+	     A unit of length equal to the average distance from the center of the
+	     Earth to the center of the Sun (standard name ua).
+	</string>
+	
+	<string name="LIGHT_YEAR">
+	     A unit of length equal to the distance that light travels in one year
+	     through a vacuum (standard name ly).
+	</string>
+	
+	<string name="PARSEC">
+	     A unit of length equal to the distance at which a star would appear to
+	     shift its position by one arcsecond over the course the time
+	     (about 3 months) in which the Earth moves a distance of
+	     one Astronomical Unit in the direction perpendicular to the
+	     direction to the star (standard name pc).
+	</string>
+	
+	<string name="POINT">
+	     A unit of length equal to 0.013837 inches exactly
+	     (standard name pt).
+	</string>
+	
+	<string name="PIXEL">
+	     A unit of length equal to 1/72 INCH
+	     (standard name pixel).
+	     It is the American point rounded to an even 1/72 inch.
+	</string>
+	
+	<string name="COMPUTER_POINT">
+	     Equivalent to one Pixel
+	</string>
+	
+	<string name="MINUTE">
+	     A unit of duration equal to 60 seconds
+	     (standard name min).
+	</string>
+	
+	<string name="HOUR">
+	     A unit of duration equal to 60 minutes
+	     (standard name h).
+	</string>
+	
+	<string name="DAY">
+	     A unit of duration equal to 24 hours
+	     (standard name d).
+	</string>
+	
+	<string name="WEEK">
+	     A unit of duration equal to 7 days
+	     (standard name week).
+	</string>
+	
+	<string name="YEAR">
+	     A unit of duration equal to 365 days, 5 hours, 49 minutes,
+	     and 12 seconds (standard name year).
+	</string>
+	
+	<string name="MONTH">
+	     A unit of duration equal to one twelfth of a year
+	     (standard name month).
+	</string>
+	
+	<string name="DAY_SIDEREAL">
+	     A unit of duration equal to the time required for a complete rotation of
+	     the earth in reference to any star or to the vernal equinox at the
+	     meridian, equal to 23 hours, 56 minutes, 4.09 seconds
+	     (standard name day_sidereal).
+	</string>
+	
+	<string name="YEAR_SIDEREAL">
+	     A unit of duration equal to one complete revolution of the
+	     earth about the sun, relative to the fixed stars, or 365 days, 6 hours,
+	     9 minutes, 9.54 seconds (standard name year_sidereal).
+	</string>
+	
+	<string name="YEAR_CALENDAR">
+	     A unit of duration equal to 365 days
+	     (standard name year_calendar).
+	</string>
+	
+	<string name="ATOMIC_MASS">
+	     A unit of mass equal to 1/12 the mass of the carbon-12 atom
+	     (standard name u).
+	</string>
+	
+	<string name="ELECTRON_MASS">
+	     A unit of mass equal to the mass of the electron
+	     (standard name me).
+	</string>
+	
+	<string name="POUND">
+	     A unit of mass equal to 453.59237 grams (avoirdupois pound,
+	     standard name lb).
+	</string>
+	
+	<string name="OUNCE">
+	     A unit of mass equal to 1/16 pound
+	     (standard name oz).
+	</string>
+	
+	<string name="TON_US">
+	     A unit of mass equal to 2000 pounds (short ton, 
+	     standard name ton_us).
+	</string>
+	
+	<string name="TON_UK">
+	     A unit of mass equal to 2240 pounds (long ton,
+	     standard name ton_uk).
+	</string>
+	
+	<string name="METRIC_TON">
+	     A unit of mass equal to 1000 kilograms (metric ton,
+	     standard name t).
+	</string>
+	
+	<string name="E">
+	     A unit of electric charge equal to the charge on one electron
+	     (standard name e).
+	</string>
+	
+	<string name="FARADAY">
+	     A unit of electric charge equal to equal to the product of Avogadro\'s
+	     number and the charge (1e) on a single electron
+	     (standard name Fd).
+	</string>
+	
+	<string name="FRANKLIN">
+	     A unit of electric charge which exerts a force of one dyne on an equal
+	     charge at a distance of one centimeter
+	     (standard name Fr).
+	</string>
+	
+	<string name="RANKINE">
+	     A unit of temperature equal to 5/9 °K
+	     (standard name °R).
+	</string>
+	
+	<string name="FAHRENHEIT">
+	     A unit of temperature equal to degree Rankine minus 
+	     459.67 °R (standard name °F).
+	</string>
+	
+	<string name="REVOLUTION">
+	     A unit of angle equal to a full circle or 2PI 
+	     radian (standard name rev).
+	</string>
+	
+	<string name="DEGREE_ANGLE">
+	     A unit of angle equal to 1/360 revolution
+	     (standard name °).
+	</string>
+	
+	<string name="MINUTE_ANGLE">
+	     A unit of angle equal to 1/60 degree angle
+	     (standard name ′).
+	</string>
+	
+	<string name="SECOND_ANGLE">
+	      A unit of angle equal to 1/60 minute angle
+	     (standard name ").
+	</string>
+	
+	<string name="CENTIRADIAN">
+	     A unit of angle equal to 0.01 radian
+	     (standard name centiradian).
+	</string>
+	
+	<string name="GRADE">
+	     A unit of angle measure equal to 1/400 revolution
+	     (standard name grade).
+	</string>
+	
+	<string name="MILES_PER_HOUR 
+	        ">
+	     A unit of velocity expressing the number of international miles per hour (abbreviation mph).
+	</string>
+	
+	<string name="KILOMETRES_PER_HOUR 
+	        ">
+	     A unit of velocity expressing the number of kilometres per 
+	     HOUR hour.
+	</string>
+	
+	<string name="KNOT 
+	        ">
+	     A unit of velocity expressing the number of
+	     nautical miles per hour (abbreviation kn).
+	</string>
+	
+	<string name="MACH">
+	     A unit of velocity to express the speed of an aircraft relative to
+	     the speed of sound (standard name Mach).
+	</string>
+	
+	<string name="C">
+	     A unit of velocity relative to the speed of light
+	     (standard name c).
+	</string>
+	
+	<string name="G">
+	     A unit of acceleration equal to the gravity at the earth\'s surface
+	     (standard name grav).
+	</string>
+	
+	<string name="ARE">
+	     A unit of area equal to 100 m²
+	     (standard name a).
+	</string>
+	
+	<string name="HECTARE">
+	     A unit of area equal to 100 are
+	     (standard name ha).
+	</string>
+	
+	<string name="BYTE">
+	     A unit of data amount equal to 8 bit
+	     (Binary Term, standard name byte).
+	</string>
+	
+	<string name="OCTET">
+	     Equivalent BYTE
+	</string>
+	
+	<string name="GILBERT">
+	     A unit of electric charge equal to the centimeter-gram-second
+	     electromagnetic unit of magnetomotive force, equal to 10/4
+	     PIampere-turn (standard name Gi).
+	</string>
+	
+	<string name="ERG">
+	     A unit of energy equal to 1E-7 J
+	     (standard name erg).
+	</string>
+	
+	<string name="ELECTRON_VOLT">
+	     A unit of energy equal to one electron-volt (standard name 
+	     eV, also recognized keV, MeV, GeV).
+	</string>
+	
+	<string name="LAMBERT">
+	     A unit of illuminance equal to 1E4 Lx
+	     (standard name La).
+	</string>
+	
+	<string name="MAXWELL">
+	     A unit of magnetic flux equal 1E-8 Wb
+	     (standard name Mx).
+	</string>
+	
+	<string name="GAUSS">
+	     A unit of magnetic flux density equal 1000 A/m
+	     (standard name G).
+	</string>
+	
+	<string name="DYNE">
+	     A unit of force equal to 1E-5 N
+	     (standard name dyn).
+	</string>
+	
+	<string name="KILOGRAM_FORCE">
+	     A unit of force equal to 9.80665 N
+	     (standard name kgf).
+	</string>
+	
+	<string name="POUND_FORCE">
+	     A unit of force equal to Pound·G
+	     (standard name lbf).
+	</string>
+	
+	<string name="HORSEPOWER">
+	     A unit of power equal to the power required to raise a mass of 75
+	     kilograms at a velocity of 1 meter per second (metric,
+	     standard name hp).
+	</string>
+	
+	<string name="ATMOSPHERE">
+	     A unit of pressure equal to the average pressure of the Earth\'s
+	     atmosphere at sea level (standard name atm).
+	</string>
+	
+	<string name="BAR">
+	     A unit of pressure equal to 100 kPa
+	     (standard name bar).
+	</string>
+	
+	<string name="MILLIMETER_OF_MERCURY">
+	     A unit of pressure equal to the pressure exerted at the Earth\'s
+	     surface by a column of mercury 1 millimeter high
+	     (standard name mmHg).
+	</string>
+	
+	<string name="INCH_OF_MERCURY">
+	     A unit of pressure equal to the pressure exerted at the Earth\'s
+	     surface by a column of mercury 1 inch high
+	     (standard name inHg).
+	</string>
+	
+	<string name="RAD">
+	     A unit of radiation dose absorbed equal to a dose of 0.01 joule of
+	     energy per kilogram of mass (J/kg) (standard name rd).
+	</string>
+	
+	<string name="REM">
+	     A unit of radiation dose effective equal to 0.01 Sv
+	     (standard name rem).
+	</string>
+	
+	<string name="CURIE">
+	     A unit of radioctive activity equal to the activity of a gram of radium
+	     (standard name Ci).
+	</string>
+	
+	<string name="RUTHERFORD">
+	     A unit of radioctive activity equal to 1 million radioactive
+	     disintegrations per second (standard name Rd).
+	</string>
+	
+	<string name="SPHERE">
+	     A unit of solid angle equal to 4 PI steradians
+	     (standard name sphere).
+	</string>
+	
+	<string name="LITRE">
+	     A unit of volume equal to one cubic decimeter (default label
+	     L, also recognized µL, mL, cL, dL).
+	</string>
+	
+	<string name="LITER">
+	     Equivalent to LITRE (American spelling).
+	</string>
+	
+	<string name="CUBIC_INCH">
+	     A unit of volume equal to one cubic inch (in³).
+	</string>
+	
+	<string name="GALLON_LIQUID_US">
+	     A unit of volume equal to one US gallon, Liquid Unit. The U.S. liquid
+	     gallon is based on the Queen Anne or Wine gallon occupying 231 cubic
+	     inches (standard name gal).
+	</string>
+	
+	<string name="QUART_LIQUID_US">
+	     A unit of volume equal to one US quart, Liquid Unit.
+	</string>
+	
+	<string name="PINT_LIQUID_US">
+	     A unit of volume equal to one US pint, Liquid Unit.
+	</string>
+	
+	<string name="OUNCE_LIQUID_US">
+	     A unit of volume equal to 1 / 128 fluid gallon
+	     (standard name oz_fl).
+	</string>
+	
+	<string name="GALLON_DRY_US">
+	     A unit of volume equal to one US dry gallon.
+	     (standard name gallon_dry_us).
+	</string>
+	
+	<string name="QUART_DRY_US">
+	     A unit of volume equal to one US dry quart.
+	</string>
+	
+	<string name="PINT_DRY_US">
+	     A unit of volume equal to one US dry pint.
+	</string>
+	
+	<string name="GALLON_UK">
+	     A unit of volume equal to 4.546 09 LITRE
+	     (standard name gal_uk).
+	</string>
+	
+	<string name="OUNCE_LIQUID_UK">
+	     A unit of volume equal to 1 / 160 gallon (uk)
+	     (standard name oz_fl_uk).
+	</string>
+	
+	<string name="POISE">
+	     A unit of dynamic viscosity equal to 1 g/(cm·s)
+	     (cgs unit).
+	</string>
+	
+	<string name="STOKE">
+	     A unit of kinematic viscosity equal to 1 cm²/s
+	     (cgs unit).
+	</string>
+	
+	<string name="ROENTGEN">
+	     A unit used to measure the ionizing ability of radiation
+	     (standard name Roentgen).
+	</string>
+	     
+	<string name="AMPERE">
+	     Default constructor (prevents this class from being instantiated).
+	</string>
+	
+	<string name="CANDELA">
+	     The base unit for luminous intensity quantities (cd).
+	     The candela is the luminous intensity, in a given direction,
+	     of a source that emits monochromatic radiation of frequency
+	     540 × 1012 hertz and that has a radiant intensity in that
+	     direction of 1/683 watt per steradian
+	</string>
+	
+	<string name="KELVIN">
+	     The base unit for thermodynamic temperature quantities (K).
+	     The kelvin is the 1/273.16th of the thermodynamic temperature of the
+	     triple point of water. It is named after the Scottish mathematician and
+	     physicist William Thomson 1st Lord Kelvin (1824-1907)
+	</string>
+	
+	<string name="KILOGRAM">
+	     The base unit for mass quantities (kg).
+	     It is the only SI unit with a prefix as part of its name and symbol.
+	     The kilogram is equal to the mass of an international prototype in the
+	     form of a platinum-iridium cylinder kept at Sevres in France.
+	</string>
+	
+	<string name="METRE">
+	     The base unit for length quantities (m).
+	     One meter was redefined in 1983 as the distance traveled by light in
+	     a vacuum in 1/299,792,458 of a second.
+	</string>
+	
+	<string name="METER">
+	     Equivalent to METRE (American spelling).
+	</string>
+	
+	<string name="MOLE">
+	     The base unit for amount of substance quantities (mol).
+	     The mole is the amount of substance of a system which contains as many
+	     elementary entities as there are atoms in 0.012 kilogram of carbon 12.
+	</string>
+	
+	<string name="SECOND">
+	     The base unit for duration quantities (s).
+	     It is defined as the duration of 9,192,631,770 cycles of radiation
+	     corresponding to the transition between two hyperfine levels of
+	     the ground state of cesium (1967 Standard).
+	</string>
+	
+	<string name="GRAM">
+	     The derived unit for mass quantities (g).
+	     The base unit for mass quantity is kilograms.
+	</string>
+	
+	<string name="RADIAN">
+	     The unit for plane angle quantities (rad).
+	     One radian is the angle between two radii of a circle such that the
+	     length of the arc between them is equal to the radius.
+	</string>
+	
+	<string name="STERADIAN">
+	     The unit for solid angle quantities (sr).
+	     One steradian is the solid angle subtended at the center of a sphere by
+	     an area on the surface of the sphere that is equal to the radius squared.
+	     The total solid angle of a sphere is 4*Pi steradians.
+	</string>
+	
+	<string name="BIT">
+	     The unit for binary information (bit).
+	</string>
+	
+	<string name="HERTZ">
+	     The derived unit for frequency (Hz).
+	     A unit of frequency equal to one cycle per second.
+	     After Heinrich Rudolf Hertz (1857-1894), German physicist who was the
+	     first to produce radio waves artificially.
+	</string>
+	
+	<string name="NEWTON">
+	     The derived unit for force (N).
+	     One newton is the force required to give a mass of 1 kilogram an Force
+	     of 1 metre per second per second. It is named after the English
+	     mathematician and physicist Sir Isaac Newton (1642-1727).
+	</string>
+	
+	<string name="PASCAL">
+	     The derived unit for pressure, stress (Pa).
+	     One pascal is equal to one newton per square meter. It is named after
+	     the French philosopher and mathematician Blaise Pascal (1623-1662).
+	</string>
+	
+	<string name="JOULE">
+	     The derived unit for energy, work, quantity of heat (J).
+	     One joule is the amount of work done when an applied force of 1 newton
+	     moves through a distance of 1 metre in the direction of the force.
+	     It is named after the English physicist James Prescott Joule (1818-1889).
+	</string>
+	
+	<string name="WATT">
+	     The derived unit for power, radiant, flux (W).
+	     One watt is equal to one joule per second. It is named after the British
+	     scientist James Watt (1736-1819).
+	</string>
+	
+	<string name="COULOMB">
+	     The derived unit for electric charge, quantity of electricity
+	     (C).
+	     One Coulomb is equal to the quantity of charge transferred in one second
+	     by a steady current of one ampere. It is named after the French physicist
+	     Charles Augustin de Coulomb (1736-1806).
+	</string>
+	
+	<string name="VOLT">
+	     The derived unit for electric potential difference, electromotive force
+	     (V).
+	     One Volt is equal to the difference of electric potential between two
+	     points on a conducting wire carrying a constant current of one ampere
+	     when the power dissipated between the points is one watt. It is named
+	     after the Italian physicist Count Alessandro Volta (1745-1827).
+	</string>
+	
+	<string name="FARAD">
+	     The derived unit for capacitance (F).
+	     One Farad is equal to the capacitance of a capacitor having an equal
+	     and opposite charge of 1 coulomb on each plate and a potential difference
+	     of 1 volt between the plates. It is named after the British physicist
+	     and chemist Michael Faraday (1791-1867).
+	</string>
+	
+	<string name="OHM">
+	     The derived unit for electric resistance (Ω or 
+	     Ohm).
+	     One Ohm is equal to the resistance of a conductor in which a current of
+	     one ampere is produced by a potential of one volt across its terminals.
+	     It is named after the German physicist Georg Simon Ohm (1789-1854).
+	</string>
+	
+	<string name="SIEMENS">
+	     The derived unit for electric conductance (S).
+	     One Siemens is equal to one ampere per volt. It is named after
+	     the German engineer Ernst Werner von Siemens (1816-1892).
+	</string>
+	
+	<string name="WEBER">
+	     The derived unit for magnetic flux (Wb).
+	     One Weber is equal to the magnetic flux that in linking a circuit of one
+	     turn produces in it an electromotive force of one volt as it is uniformly
+	     reduced to zero within one second. It is named after the German physicist
+	     Wilhelm Eduard Weber (1804-1891).
+	</string>
+	
+	<string name="TESLA">
+	     The derived unit for magnetic flux density (T).
+	     One Tesla is equal equal to one weber per square meter. It is named
+	     after the Serbian-born American electrical engineer and physicist
+	     Nikola Tesla (1856-1943).
+	</string>
+	
+	<string name="HENRY">
+	     The derived unit for inductance (H).
+	     One Henry is equal to the inductance for which an induced electromotive
+	     force of one volt is produced when the current is varied at the rate of
+	     one ampere per second. It is named after the American physicist
+	     Joseph Henry (1791-1878).
+	</string>
+	
+	<string name="CELSIUS">
+	     The derived unit for Celsius temperature (℃).
+	     This is a unit of temperature such as the freezing point of water
+	     (at one atmosphere of pressure) is 0 ℃, while the boiling point is
+	     100 ℃.
+	</string>
+	
+	<string name="LUMEN">
+	     The derived unit for luminous flux (lm).
+	     One Lumen is equal to the amount of light given out through a solid angle
+	     by a source of one candela intensity radiating equally in all directions.
+	</string>
+	
+	<string name="LUX">
+	     The derived unit for illuminance (lx).
+	     One Lux is equal to one lumen per square meter.
+	</string>
+	
+	<string name="BECQUEREL">
+	     The derived unit for activity of a radionuclide (Bq).
+	     One becquerel is the radiation caused by one disintegration per second.
+	     It is named after the French physicist, Antoine-Henri Becquerel
+	     (1852-1908).
+	</string>
+	
+	<string name="GRAY">
+	     The derived unit for absorbed dose, specific energy (imparted), kerma
+	     (Gy).
+	     One gray is equal to the dose of one joule of energy absorbed per one
+	     kilogram of matter. It is named after the British physician
+	     L. H. Gray (1905-1965).
+	</string>
+	
+	<string name="SIEVERT">
+	     The derived unit for dose equivalent (Sv).
+	     One Sievert is equal  is equal to the actual dose, in grays, multiplied
+	     by a "quality factor" which is larger for more dangerous forms of
+	     radiation. It is named after the Swedish physicist Rolf Sievert
+	     (1898-1966).
+	</string>
+	
+	<string name="KATAL">
+	     The derived unit for catalytic activity (kat).
+	</string>
+	
+	<string name="METRES_PER_SECOND">
+	     The metric unit for velocity quantities (m/s).
+	</string>
+	
+	<string name="METRES_PER_SQUARE_SECOND">
+	     The metric unit for acceleration quantities (m/s²).
+	</string>
+	
+	<string name="SQUARE_METRE">
+	     The metric unit for area quantities (m²).
+	</string>
+	
+	<string name="CUBIC_METRE">
+	     The metric unit for volume quantities (m³).
+	</string>
+	
+	<string name="KILOMETRE">
+	     Equivalent to KILO(METRE).
+	</string>
+	
+	<string name="CENTIMETRE">
+	     Equivalent to CENTI(METRE).
+	</string>
+	
+	<string name="MILLIMETRE">
+	     Equivalent to MILLI(METRE).
+	</string>
+</resources>

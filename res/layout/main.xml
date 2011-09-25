@@ -47,16 +47,16 @@
 		android:layout_height="wrap_content"
 		android:layout_width="fill_parent" >
 		
-		<com.tectria.converterous.FontResizingEditText android:id="@+id/txtFromVal"
+		<EditText android:id="@+id/txtFromVal"
 			style="@style/Text.Unit.Result"
-			android:inputType="number"
-			android:digits="1234567890.," />
+			android:inputType="numberDecimal|numberSigned" />
 		
 		<TextView android:id="@+id/lblEq"
 			style="@style/Text.Equals"
 			android:text="=" />
 			
-		<com.tectria.converterous.FontResizingEditText android:id="@+id/txtToVal"
-			style="@style/Text.Unit.Result" />
+		<EditText android:id="@+id/txtToVal"
+			style="@style/Text.Unit.Result"
+			android:editable="false" />
 	</LinearLayout>
 </LinearLayout>

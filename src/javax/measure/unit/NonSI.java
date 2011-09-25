@@ -473,8 +473,23 @@ public final class NonSI extends SystemOfUnits {
      * Equivalent {@link #BYTE}
      */
     public static final Unit<DataAmount> OCTET = BYTE;
-
-
+    
+    public static final Unit<DataAmount> KILOBYTE = nonSI(KILO(BYTE));
+    
+    public static final Unit<DataAmount> MEGABYTE = nonSI(MEGA(BYTE));
+    
+    public static final Unit<DataAmount> GIGABYTE = nonSI(GIGA(BYTE));
+    
+    public static final Unit<DataAmount> TERABYTE = nonSI(TERA(BYTE));
+    
+    public static final Unit<DataAmount> PETABYTE = nonSI(PETA(BYTE));
+    
+    public static final Unit<DataAmount> EXABYTE = nonSI(EXA(BYTE));
+    
+    public static final Unit<DataAmount> ZETTABYTE = nonSI(ZETTA(BYTE));
+    
+    public static final Unit<DataAmount> YOTTABYTE = nonSI(ZETTA(BYTE));
+    
     //////////////////////
     // Electric current //
     //////////////////////
@@ -673,6 +688,16 @@ public final class NonSI extends SystemOfUnits {
      * inches (standard name <code>gal</code>).
      */
     public static final Unit<Volume> GALLON_LIQUID_US = nonSI(CUBIC_INCH.times(231));
+    
+    /**
+     * A unit of volume equal to one US quart, Liquid Unit.
+     */
+    public static final Unit<Volume> QUART_LIQUID_US = nonSI(CUBIC_INCH.times(57.75));
+    
+    /**
+     * A unit of volume equal to one US pint, Liquid Unit.
+     */
+    public static final Unit<Volume> PINT_LIQUID_US = nonSI(CUBIC_INCH.times(28.875));
 
     /**
      * A unit of volume equal to <code>1 / 128 {@link #GALLON_LIQUID_US}</code>
@@ -686,7 +711,18 @@ public final class NonSI extends SystemOfUnits {
      * (standard name <code>gallon_dry_us</code>).
      */
     public static final Unit<Volume> GALLON_DRY_US = nonSI(CUBIC_INCH.times(2688025).divide(10000));
-
+    
+    /**
+     * A unit of volume equal to one US dry quart.
+     */
+    public static final Unit<Volume> QUART_DRY_US = nonSI(CUBIC_INCH.times(2688025).divide(10000).divide(4));
+    
+    /**
+     * A unit of volume equal to one US dry pint.
+     */
+    public static final Unit<Volume> PINT_DRY_US = nonSI(CUBIC_INCH.times(2688025).divide(10000).divide(8));
+    
+    
     /**
      * A unit of volume equal to <code>4.546 09 {@link #LITRE}</code>
      * (standard name <code>gal_uk</code>).

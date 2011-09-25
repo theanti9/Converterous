@@ -161,7 +161,8 @@ public class UnitData {
 		"Volume",
 		"Distance",
 		"Time",
-		"Temperature"
+		"Temperature",
+		"Radioactivity"
 	));
 	
 	
@@ -205,7 +206,8 @@ public class UnitData {
 		"mi",
 		"°C",
 		"°F",
-		"°K"
+		"°K",
+		"°R"
 	));
 	
 	/*
@@ -226,7 +228,12 @@ public class UnitData {
 		"Distance",
 		"Temperature",
 		"Temperature",
-		"Temperature"
+		"Temperature",
+		"Temperature",
+		"Radioactivity",
+		"Radioactivity",
+		"Radioactivity",
+		"Radioactivity"
 	));
 	
 	/*
@@ -234,14 +241,16 @@ public class UnitData {
 	 */
 	private static final ArrayList<String> temperatureUnits = new ArrayList<String>(Arrays.asList(
 			"Fahrenheit",
-			"Celcius",
-			"Kelvin"
+			"Celsius",
+			"Kelvin",
+			"Rankine"
 		));
 	
 	private static final ArrayList<String> temperatureUnitsAbv = new ArrayList<String>(Arrays.asList(
 			"°F",
 			"°C",
-			"°K"
+			"°K",
+			"°R"
 		));
 	
 	/*
