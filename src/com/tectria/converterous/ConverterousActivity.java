@@ -26,10 +26,14 @@ public class ConverterousActivity extends Activity {
     private boolean scrolling = false;
     private int savedToItem = 0;
     private int savedFromItem = 0;
-    private int offset;
     private float initialTextSize;
     private int lastFromLen = 0;
     private int lastToLen = 0;
+    private int fromIndex;
+	private int toIndex;
+	private int typeIndex;
+	private double fromnum;
+	private boolean dialogBusy = false;
     
     private LinearLayout llayout = null;
     private WheelView whlTo = null;
@@ -118,7 +122,7 @@ public class ConverterousActivity extends Activity {
         
         whlType.addChangingListener(new OnWheelChangedListener() {
 			public void onChanged(WheelView wheel, int oldVal, int newVal) {
-				lblType.setText("Converting " + UnitData.getTypeAtIndex(whlType.getCurrentItem()));
+				lblType.setText("Converting " + UnitData.getType(whlType.getCurrentItem()));
 				updateFromUnits(newVal);
 				playClick();
 			}
@@ -148,7 +152,7 @@ public class ConverterousActivity extends Activity {
         
         whlFrom.addChangingListener(new OnWheelChangedListener() {
 			public void onChanged(WheelView wheel, int oldVal, int newVal) {
-				lblFrom.setText(casecor(UnitData.getUnitAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlFrom.getCurrentItem())));
+				lblFrom.setText(casecor(UnitData.getName(whlTo.getCurrentItem(), whlFrom.getCurrentItem())));
 				updateToUnits(whlType.getCurrentItem());
 				showResults();
 				playClick();
@@ -208,7 +212,7 @@ public class ConverterousActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				if(v != txtFromVal) {
-            		txtFromVal.setText(Html.fromHtml(getNumeric(txtFromVal.getText().toString()) + "<small><small>" + UnitData.getAbvAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlFrom.getCurrentItem()) + "</small></small>"));
+            		txtFromVal.setText(Html.fromHtml(getNumeric(txtFromVal.getText().toString()) + "<small><small>" + UnitData.getAbv(whlType.getCurrentItem(), whlFrom.getCurrentItem()) + "</small></small>"));
             		imm.hideSoftInputFromWindow(llayout.getWindowToken(), 0);
             		llayout.requestFocus();
 				}
@@ -246,7 +250,7 @@ public class ConverterousActivity extends Activity {
             		if(getNumeric(txtFromVal.getText().toString()).equals("")) {
             			txtFromVal.setText("0");
             		}
-            		txtFromVal.setText(Html.fromHtml(getNumeric(txtFromVal.getText().toString()) + "<small><small>" + UnitData.getAbvAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlFrom.getCurrentItem()) + "</small></small>"));
+            		txtFromVal.setText(Html.fromHtml(getNumeric(txtFromVal.getText().toString()) + "<small><small>" + UnitData.getAbv(whlType.getCurrentItem(), whlFrom.getCurrentItem()) + "</small></small>"));
             		imm.hideSoftInputFromWindow(llayout.getWindowToken(), 0);
             		if(txtFromVal.getLineCount() > 1) {
 						txtFromVal.setTextSize(TypedValue.COMPLEX_UNIT_PX, txtFromVal.getTextSize()/1.3f);
@@ -366,14 +370,18 @@ public class ConverterousActivity extends Activity {
     }
     
     public final void makeDialog(String title, String text) {
-    	dialog = new AlertDialog.Builder(this);
-        dialogText = new TextView(this);
-        dialogText.setText(text);
-        dialogText.setPadding(10, 10, 10, 10);
-        dialog.setView(dialogText);
-        dialog.setTitle(title);
-        dialog.create();
-        dialog.show();
+    	if(!dialogBusy) {
+    		dialogBusy = true;
+        	dialog = new AlertDialog.Builder(this);
+            dialogText = new TextView(this);
+            dialogText.setText(text);
+            dialogText.setPadding(10, 10, 10, 10);
+            dialog.setView(dialogText);
+            dialog.setTitle(title);
+            dialog.create();
+            dialog.show();
+            dialogBusy = false;
+    	}
     }
     
     public final String getNumeric(String str) {
@@ -421,23 +429,28 @@ public class ConverterousActivity extends Activity {
 	}
 	
 	public final void recalcToVal() {
-		offset = 0;
-		if(whlTo.getCurrentItem() >= whlFrom.getCurrentItem()) {
-			offset = 1;
+		fromIndex = whlFrom.getCurrentItem();
+		toIndex = whlTo.getCurrentItem();
+		typeIndex = whlType.getCurrentItem();
+		
+		if(toIndex >= fromIndex) {
+			toIndex += 1;
 		}
-		double fromnum;
+		
 		if(getNumeric(txtFromVal.getText().toString()).equals("")) {
 			fromnum = 0.0;
 		} else {
 			fromnum = Double.parseDouble(getNumeric(txtFromVal.getText().toString()));
 		}
-		lblTo.setText(casecor(UnitData.getUnitAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlTo.getCurrentItem() + offset)));
-		converter.setFromUnit(UnitData.getUnitAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlFrom.getCurrentItem()));
-		converter.setToUnit(UnitData.getUnitAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlTo.getCurrentItem() + offset));
+		
+		lblTo.setText(casecor(UnitData.getName(typeIndex, toIndex)));
+		converter.setFromUnit(UnitData.getName(typeIndex, fromIndex));
+		converter.setToUnit(UnitData.getName(typeIndex, toIndex));
 		converter.setFromNum(fromnum);
-		converter.setFromSI(UnitData.getIsSIFor(whlType.getCurrentItem(), whlFrom.getCurrentItem()));
-		converter.setToSI(UnitData.getIsSIFor(whlType.getCurrentItem(), whlTo.getCurrentItem() + offset));
-		txtToVal.setText(Html.fromHtml(dec.format(converter.convert()) + "<small><small>" + UnitData.getAbvAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlTo.getCurrentItem() + offset) + "</small></small>"));
+		converter.setFromSI(UnitData.getSI(typeIndex, fromIndex));
+		converter.setToSI(UnitData.getSI(typeIndex, toIndex));
+		txtToVal.setText(Html.fromHtml(dec.format(converter.convert()) + "<small><small>" + UnitData.getAbv(typeIndex, toIndex) + "</small></small>"));
+		
 		//If string length increased
 		if(txtToVal.getText().length() > lastToLen) {
 			//Decrease font size until it only spans one line
@@ -454,19 +467,22 @@ public class ConverterousActivity extends Activity {
 	}
 	
 	public final void showResults() {
-		offset = 0;
-		if(whlTo.getCurrentItem() >= whlFrom.getCurrentItem()) {
-			offset = 1;
+		fromIndex = whlFrom.getCurrentItem();
+		toIndex = whlTo.getCurrentItem();
+		typeIndex = whlType.getCurrentItem();
+		
+		if(toIndex >= fromIndex) {
+			toIndex += 1;
 		}
 		
-		converter.setFromUnit(UnitData.getUnitAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlFrom.getCurrentItem()));
-		converter.setToUnit(UnitData.getUnitAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlTo.getCurrentItem() + offset));
-		converter.setFromNum(Double.parseDouble(getNumeric(txtFromVal.getText().toString())));
-		converter.setFromSI(UnitData.getIsSIFor(whlType.getCurrentItem(), whlFrom.getCurrentItem()));
-		converter.setToSI(UnitData.getIsSIFor(whlType.getCurrentItem(), whlTo.getCurrentItem() + offset));
+		converter.setFromUnit(UnitData.getName(typeIndex, fromIndex));
+		converter.setToUnit(UnitData.getName(typeIndex, toIndex));
+		converter.setFromNum(fromnum);
+		converter.setFromSI(UnitData.getSI(typeIndex, fromIndex));
+		converter.setToSI(UnitData.getSI(typeIndex, toIndex));
 		
-		txtFromVal.setText(Html.fromHtml(getNumeric(txtFromVal.getText().toString()) + "<small><small>" + UnitData.getAbvAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlFrom.getCurrentItem()) + "</small></small>"));
-		txtToVal.setText(Html.fromHtml(dec.format(converter.convert()) + "<small><small>" + UnitData.getAbvAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlTo.getCurrentItem() + offset) + "</small></small>"));
+		txtFromVal.setText(Html.fromHtml(getNumeric(txtFromVal.getText().toString()) + "<small><small>" + UnitData.getAbv(typeIndex, fromIndex) + "</small></small>"));
+		txtToVal.setText(Html.fromHtml(dec.format(converter.convert()) + "<small><small>" + UnitData.getAbv(typeIndex, toIndex) + "</small></small>"));
 		
 		if(txtFromVal.getLineCount() > 1) {
 			txtFromVal.setTextSize(TypedValue.COMPLEX_UNIT_PX, txtFromVal.getTextSize()/1.3f);
@@ -486,9 +502,9 @@ public class ConverterousActivity extends Activity {
 			txtToVal.setTextSize(TypedValue.COMPLEX_UNIT_PX, initialTextSize);
 		}
 		
-		lblFrom.setText(casecor(UnitData.getUnitAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlFrom.getCurrentItem())));
-		lblTo.setText(casecor(UnitData.getUnitAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlTo.getCurrentItem() + offset)));
-		lblType.setText("Converting " + UnitData.getTypeAtIndex(whlType.getCurrentItem()));
+		lblFrom.setText(casecor(UnitData.getName(typeIndex, fromIndex)));
+		lblTo.setText(casecor(UnitData.getName(typeIndex, toIndex)));
+		lblType.setText("Converting " + UnitData.getType(typeIndex));
 		txtFromVal.setPadding(txtFromVal.getPaddingLeft(), 2, txtFromVal.getPaddingRight(), 6);
 		txtFromVal.setVisibility(View.VISIBLE);
 		txtToVal.setVisibility(View.VISIBLE);
@@ -497,14 +513,14 @@ public class ConverterousActivity extends Activity {
     
     public final void updateFromUnits(int type) {
     	savedFromItem = whlFrom.getCurrentItem();
-    	whlFrom.setViewAdapter(new FromUnitAdapter(this, UnitData.getTypeAtIndex(type)));
+    	whlFrom.setViewAdapter(new FromUnitAdapter(this, UnitData.getType(type)));
     	whlFrom.setCurrentItem(savedFromItem);
     	updateToUnits(type);
     }
     
     public final void updateToUnits(int type) {
     	savedToItem = whlTo.getCurrentItem();
-    	whlTo.setViewAdapter(new ToUnitAdapter(this, UnitData.getTypeAtIndex(type)));
+    	whlTo.setViewAdapter(new ToUnitAdapter(this, UnitData.getType(type)));
     	whlTo.setCurrentItem(savedToItem);
     	txtToVal.setTextSize(TypedValue.COMPLEX_UNIT_PX, initialTextSize);
     	if(!scrolling) {
@@ -535,7 +551,7 @@ public class ConverterousActivity extends Activity {
         
         @Override
         protected CharSequence getItemText(int index) {
-        	return UnitData.getTypeAtIndex(index);
+        	return UnitData.getType(index);
         }
     }
     
@@ -565,7 +581,7 @@ public class ConverterousActivity extends Activity {
         
         @Override
         protected CharSequence getItemText(int index) {
-            return UnitData.getUnitAtIndex(this.type, index);
+            return UnitData.getName(this.type, index);
         }
     }
     
@@ -606,7 +622,7 @@ public class ConverterousActivity extends Activity {
         		}
         	}
         	
-        	String[] item = UnitData.getUnitAtIndex(this.type, index, whlFrom.getCurrentItem());
+        	String[] item = UnitData.getName(this.type, index, whlFrom.getCurrentItem());
         	
         	if(item[1].equals("1")) { 
         		this.avoided = true;
