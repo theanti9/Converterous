@@ -21,7 +21,7 @@ import android.util.TypedValue;
 
 import java.text.*;
 
-public class ConverterousActivity extends Activity {
+public class ConverterActivity extends Activity {
 	
     private boolean scrolling = false;
     private int savedToItem = 0;
@@ -59,7 +59,7 @@ public class ConverterousActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.converter);
         
         imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
         click_mp = MediaPlayer.create(this, R.raw.click);

@@ -18,7 +18,7 @@ public class FavoriteListActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.favoritelist);
-        ListView lv = (ListView)findViewById(R.id.lstFavorites);
+        /*ListView lv = (ListView)findViewById(R.id.lstFavorites);
         FavoritesListAdapter favlist = new FavoritesListAdapter(this, new ArrayList<String>());
         ConverterousDbAdapter database = new ConverterousDbAdapter(this);
         database.open();
@@ -39,12 +39,12 @@ public class FavoriteListActivity extends Activity {
 				Bundle b = new Bundle();
 				b.putString("unit1", UnitData.getAbv(items[0]));
 				b.putString("unit2", UnitData.getAbv(items[2]));
-				Intent intent = new Intent(getBaseContext(), ConverterousActivity.class);
+				Intent intent = new Intent(getBaseContext(), ConverterActivity.class);
 				intent.putExtras(b);
 				startActivity(intent);
 			}
         	
-        });
+        });*/
         
     }
 }

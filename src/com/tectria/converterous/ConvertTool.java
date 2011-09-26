@@ -2,6 +2,7 @@ package com.tectria.converterous;
 
 import java.lang.reflect.Field;
 import javax.measure.Measure;
+import javax.measure.converter.UnitConverter;
 import javax.measure.unit.Unit;
 
 public class ConvertTool {
@@ -56,7 +57,11 @@ public class ConvertTool {
 			fromUnit = (Unit)fromUnitField.get(fromUnitClass);
 			toUnit = (Unit)toUnitField.get(toUnitClass);
 			
-			return fromUnit.getConverterTo(toUnit).convert(Measure.valueOf(this.fromNum, fromUnit).doubleValue(fromUnit));
+			UnitConverter converterTo = fromUnit.getConverterTo(toUnit);
+			Measure m1 = Measure.valueOf(this.fromNum, fromUnit);
+			double m2 = m1.doubleValue(fromUnit);
+			
+			return converterTo.convert(m2);
 		} catch (SecurityException e) {
 			return 0.0;
 		} catch (IllegalAccessException e) {
