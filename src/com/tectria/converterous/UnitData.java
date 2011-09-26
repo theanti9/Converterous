@@ -4,123 +4,8 @@ import java.util.*;
 
 public class UnitData {
 	
-	//returns number of items, given a type
-	public static int getLength(String type) {
-		final char typechar = type.charAt(0);
-		switch(typechar) {
-			case 'M':
-				return massUnits.size();
-			case 'V':
-				return volumeUnits.size();
-			case 'D':
-				return distanceUnits.size();
-			case 'T':
-				if(type == "Temperature") {
-					return temperatureUnits.size();
-				}
-				return timeUnits.size();
-			case 'U':
-				return unitTypes.size();
-			default:
-				return allUnits.size();
-		}
-	}
-	
-	//returns abbreviation, given a unit name
-	public static String getAbv(String unit) {
-		return allUnitsAbv.get(allUnits.indexOf(unit));
-	}
-
-	//returns unit name, given abbreviation
-	public static String getName(String abv) {
-		return allUnits.get(allUnitsAbv.indexOf(abv));
-	}
-	
-	//returns unit type, given a unit name
-	public static String getType(String unit) {
-		return allUnitTypes.get(allUnits.indexOf(unit));
-	}
-	
-	//returns unit name, given type and index
-		public static String[] getUnitAtIndex(String type, int index, int avoid) {
-			final char typechar = type.charAt(0);
-			String avoided = "0";
-			
-			if(index == avoid) {
-				++index;
-				avoided = "1";
-			}
-			
-			switch(typechar) {
-				case 'M':
-					return new String[] {massUnits.get(index), avoided};
-				case 'V':
-					return new String[] {volumeUnits.get(index), avoided};
-				case 'D':
-					return new String[] {distanceUnits.get(index), avoided};
-				case 'T':
-					if(type == "Temperature") {
-						return new String[] {temperatureUnits.get(index), avoided};
-					}
-					return new String[] {timeUnits.get(index), avoided};
-				default:
-					return new String[] {allUnits.get(index), avoided};
-			}
-		}
-	
-	//returns unit name, given type and index
-	public static String getUnitAtIndex(String type, int index) {
-		final char typechar = type.charAt(0);
-		switch(typechar) {
-			case 'M':
-				return massUnits.get(index);
-			case 'V':
-				return volumeUnits.get(index);
-			case 'D':
-				return distanceUnits.get(index);
-			case 'T':
-				if(type == "Temperature") {
-					return temperatureUnits.get(index);
-				}
-				return timeUnits.get(index);
-			default:
-				return allUnits.get(index);
-		}
-	}
-	
-	//returns unit abbreviation, given type and index
-		public static String getAbvAtIndex(String type, int index) {
-			final char typechar = type.charAt(0);
-			switch(typechar) {
-				case 'M':
-					return massUnitsAbv.get(index);
-				case 'V':
-					return volumeUnitsAbv.get(index);
-				case 'D':
-					return distanceUnitsAbv.get(index);
-				case 'T':
-					if(type == "Temperature") {
-						return temperatureUnitsAbv.get(index);
-					}
-					return timeUnitsAbv.get(index);
-				default:
-					return allUnitsAbv.get(index);
-			}
-		}
-	
-	//returns type name, given index
-	public static String getTypeAtIndex(int index) {
-		return unitTypes.get(index);
-	}
-	
-	public static boolean getIsSIFor(int type, int local_index) {
-		String type_name = unitTypes.get(type);
-		String unit = getUnitAtIndex(type_name, local_index);
-		return allUnitsSI.get(allUnits.indexOf(unit)).booleanValue();
-	}
-	
-	//returns ArrayList of units, given a type
-	public static ArrayList<String> getUnitsFor(String type) {
+	private static ArrayList<String> arrayFor(int typeindex) {
+		String type = unitTypes.get(typeindex);
 		final char typechar = type.charAt(0);
 		switch(typechar) {
 			case 'M':
@@ -134,30 +19,132 @@ public class UnitData {
 					return temperatureUnits;
 				}
 				return timeUnits;
+			case 'U':
+				return unitTypes;
 			default:
 				return allUnits;
 		}
 	}
 	
-	//returns ArrayList of unit abbreviations, given a type
-		public static ArrayList<String> getAbvsFor(String type) {
-			final char typechar = type.charAt(0);
-			switch(typechar) {
-				case 'M':
-					return massUnitsAbv;
-				case 'V':
-					return volumeUnitsAbv;
-				case 'D':
-					return distanceUnitsAbv;
-				case 'T':
-					if(type == "Temperature") {
-						return temperatureUnitsAbv;
-					}
-					return timeUnitsAbv;
-				default:
-					return allUnitsAbv;
-			}
+	private static ArrayList<String> arrayFor(String type) {
+		final char typechar = type.charAt(0);
+		switch(typechar) {
+			case 'M':
+				return massUnits;
+			case 'V':
+				return volumeUnits;
+			case 'D':
+				return distanceUnits;
+			case 'T':
+				if(type == "Temperature") {
+					return temperatureUnits;
+				}
+				return timeUnits;
+			case 'U':
+				return unitTypes;
+			default:
+				return allUnits;
 		}
+	}
+	public static boolean getIsSIFor(int type, int local_index) {
+		String type_name = unitTypes.get(type);
+		String unit = getName(type_name, local_index);
+		return allUnitsSI.get(allUnits.indexOf(unit)).booleanValue();
+	}
+
+	private static ArrayList<String> arrayFor(int typeindex, boolean abv) {
+		String type = unitTypes.get(typeindex);
+		final char typechar = type.charAt(0);
+		switch(typechar) {
+			case 'M':
+				return massUnitsAbv;
+			case 'V':
+				return volumeUnitsAbv;
+			case 'D':
+				return distanceUnitsAbv;
+			case 'T':
+				if(type == "Temperature") {
+					return temperatureUnitsAbv;
+				}
+				return timeUnitsAbv;
+			default:
+				return allUnitsAbv;
+		}
+	}
+	
+	//returns number of items, given a type index
+	public static int getLength(int type) {
+		return arrayFor(type).size();
+	}
+	
+	//returns number of items, given a type name
+	public static int getLength(String type) {
+		return arrayFor(type).size();
+	}
+	
+	//returns abbreviation, given a unit name
+	public static String getAbv(String unit) {
+		return allUnitsAbv.get(allUnits.indexOf(unit));
+	}
+	
+	//returns abbreviation, given a type and index
+	public static String getAbv(int type, int index) {
+		return arrayFor(type, true).get(index);
+	}
+
+	//returns unit name, given abbreviation
+	public static String getName(String abv) {
+		return allUnits.get(allUnitsAbv.indexOf(abv));
+	}
+	
+	//returns unit name, given type index and index
+	public static String getName(int type, int index) {
+		return arrayFor(type).get(index);
+	}
+	
+	//returns unit name, given type string and index
+	public static String getName(String type, int index) {
+		return arrayFor(type).get(index);
+	}
+	
+	//returns unit name + avoided, given type string, index, and avoided
+	public static String[] getName(String type, int index, int avoid) {
+
+		if(index == avoid) {
+			return new String[] {arrayFor(type).get(index + 1), "1"};
+		} else {
+			return new String[] {arrayFor(type).get(index), "0"};
+		}
+		
+	}
+	
+	//returns unit type, given a unit name or abbreviation
+	public static String getType(String unit, boolean abv) {
+		if(abv) {
+			return allUnitsType.get(allUnitsAbv.indexOf(unit));
+		} else {
+			return allUnitsType.get(allUnits.indexOf(unit));
+		}
+	}
+	
+	//returns unit type, given a type index
+	public static String getType(int index) {
+		return unitTypes.get(index);
+	}
+	
+	//returns unit SI boolean, given a unit name or abbreviation
+	public static boolean getSI(String unit, boolean abv) {
+		if(abv) {
+			return allUnitsSI.get(allUnitsAbv.indexOf(unit));
+		} else {
+			return allUnitsSI.get(allUnits.indexOf(unit));
+		}
+	}
+	
+	//returns unit SI boolean, given a type and index
+	public static boolean getSI(int type, int index) {
+		return allUnitsSI.get(allUnits.indexOf(arrayFor(type).get(index)));
+	}
 	
 	/*
 	 * Array of unit types. i.e, Mass, Volume, Length, etc
@@ -364,7 +351,7 @@ public class UnitData {
 	/*
 	 * All Unit Types (Used for quick lookups)
 	 */
-	private static final ArrayList<String> allUnitTypes = new ArrayList<String>(Arrays.asList(
+	private static final ArrayList<String> allUnitsType = new ArrayList<String>(Arrays.asList(
 		"Time",
 		"Time",
 		"Time",
