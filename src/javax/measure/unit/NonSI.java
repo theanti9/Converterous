@@ -743,13 +743,15 @@ public final class NonSI extends SystemOfUnits {
      * A unit of volume equal to <code>4.546 09 {@link #LITRE}</code>
      * (standard name <code>gal_uk</code>).
      */
-    public static final Unit<Volume> GALLON_UK = nonSI(LITRE.times(454609).divide(100000));
-
+    public static final Unit<Volume> GALLON_LIQUID_UK = nonSI(LITRE.times(454609).divide(100000));
+    
+    public static final Unit<Volume> QUART_LIQUID_UK = nonSI(GALLON_LIQUID_UK.divide(4));
+    public static final Unit<Volume> PINT_LIQUID_UK = nonSI(GALLON_LIQUID_UK.divide(8));
     /**
      * A unit of volume equal to <code>1 / 160 {@link #GALLON_UK}</code>
      * (standard name <code>oz_fl_uk</code>).
      */
-    public static final Unit<Volume> OUNCE_LIQUID_UK = nonSI(GALLON_UK.divide(160));
+    public static final Unit<Volume> OUNCE_LIQUID_UK = nonSI(GALLON_LIQUID_UK.divide(160));
 
     ///////////////
     // Viscosity //

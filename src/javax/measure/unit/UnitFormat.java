@@ -929,11 +929,11 @@ public abstract class UnitFormat extends Format {
         DEFAULT.label(NonSI.GALLON_LIQUID_US, "gal");
         DEFAULT.label(NonSI.OUNCE_LIQUID_US, "oz");
         DEFAULT.label(NonSI.GALLON_DRY_US, "gallon_dry_us");
-        DEFAULT.label(NonSI.GALLON_UK, "gallon_uk");
+        DEFAULT.label(NonSI.GALLON_LIQUID_UK, "gallon_uk");
         DEFAULT.label(NonSI.OUNCE_LIQUID_UK, "oz_uk");
         DEFAULT.label(NonSI.ROENTGEN, "Roentgen");
         if (Locale.getDefault().getCountry().equals("GB")) {
-            DEFAULT.label(NonSI.GALLON_UK, "gal");
+            DEFAULT.label(NonSI.GALLON_LIQUID_UK, "gal");
             DEFAULT.label(NonSI.OUNCE_LIQUID_UK, "oz");
         }
     }
