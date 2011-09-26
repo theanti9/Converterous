@@ -474,6 +474,22 @@ public final class NonSI extends SystemOfUnits {
      */
     public static final Unit<DataAmount> OCTET = BYTE;
     
+    public static final Unit<DataAmount> KILOBIT = nonSI(KILO(BIT));
+    
+    public static final Unit<DataAmount> MEGABIT = nonSI(MEGA(BIT));
+    
+    public static final Unit<DataAmount> GIGABIT = nonSI(GIGA(BIT));
+    
+    public static final Unit<DataAmount> TERABIT = nonSI(TERA(BIT));
+    
+    public static final Unit<DataAmount> PETABIT = nonSI(PETA(BIT));
+    
+    public static final Unit<DataAmount> EXABIT = nonSI(EXA(BIT));
+    
+    public static final Unit<DataAmount> ZETTABIT = nonSI(ZETTA(BIT));
+    
+    public static final Unit<DataAmount> YOTTABIT = nonSI(YOTTA(BIT));
+    
     public static final Unit<DataAmount> KILOBYTE = nonSI(KILO(BYTE));
     
     public static final Unit<DataAmount> MEGABYTE = nonSI(MEGA(BYTE));
@@ -488,7 +504,7 @@ public final class NonSI extends SystemOfUnits {
     
     public static final Unit<DataAmount> ZETTABYTE = nonSI(ZETTA(BYTE));
     
-    public static final Unit<DataAmount> YOTTABYTE = nonSI(ZETTA(BYTE));
+    public static final Unit<DataAmount> YOTTABYTE = nonSI(YOTTA(BYTE));
     
     //////////////////////
     // Electric current //

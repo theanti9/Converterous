@@ -634,42 +634,42 @@ public class ConvertTool {
 	}
 	
 	//Bits to Kilobytes
-	public double btok(double i) {
+	public double btokB(double i) {
 		return BIT.getConverterTo(KILOBYTE).convert(Measure.valueOf(i, BIT).doubleValue(BIT));
 	}
 	
 	//Bits to Megabytes
-	public double btoM(double i) {
+	public double btoMB(double i) {
 		return BIT.getConverterTo(MEGABYTE).convert(Measure.valueOf(i, BIT).doubleValue(BIT));
 	}
 	
 	//Bits to Gigabytes
-	public double btoG(double i) {
+	public double btoGB(double i) {
 		return BIT.getConverterTo(GIGABYTE).convert(Measure.valueOf(i, BIT).doubleValue(BIT));
 	}
 	
 	//Bits to Terabytes
-	public double btoT(double i) {
+	public double btoTB(double i) {
 		return BIT.getConverterTo(TERABYTE).convert(Measure.valueOf(i, BIT).doubleValue(BIT));
 	}
 	
 	//Bits to Petabytes
-	public double btoP(double i) {
+	public double btoPB(double i) {
 		return BIT.getConverterTo(PETABYTE).convert(Measure.valueOf(i, BIT).doubleValue(BIT));
 	}
 	
 	//Bits to Exabytes
-	public double btoE(double i) {
+	public double btoEB(double i) {
 		return BIT.getConverterTo(EXABYTE).convert(Measure.valueOf(i, BIT).doubleValue(BIT));
 	}
 	
 	//Bits to Zettabytes
-	public double btoZ(double i) {
+	public double btoZB(double i) {
 		return BIT.getConverterTo(ZETTABYTE).convert(Measure.valueOf(i, BIT).doubleValue(BIT));
 	}
 	
 	//Bits to Yottabytes
-	public double btoY(double i) {
+	public double btoYB(double i) {
 		return BIT.getConverterTo(YOTTABYTE).convert(Measure.valueOf(i, BIT).doubleValue(BIT));
 	}
 	
@@ -679,403 +679,402 @@ public class ConvertTool {
 	}
 	
 	//Bytes to Kilobytes
-	public double Btok(double i) {
+	public double BtokB(double i) {
 		return BYTE.getConverterTo(KILOBYTE).convert(Measure.valueOf(i, BYTE).doubleValue(BYTE));
 	}
 	
 	//Bytes to Megabytes
-	public double BtoM(double i) {
+	public double BtoMB(double i) {
 		return BYTE.getConverterTo(MEGABYTE).convert(Measure.valueOf(i, BYTE).doubleValue(BYTE));
 	}
 	
 	//Bytes to Gigabytes
-	public double BtoG(double i) {
+	public double BtoGB(double i) {
 		return BYTE.getConverterTo(GIGABYTE).convert(Measure.valueOf(i, BYTE).doubleValue(BYTE));
 	}
 	
 	//Bytes to Terabytes
-	public double BtoT(double i) {
+	public double BtoTB(double i) {
 		return BYTE.getConverterTo(TERABYTE).convert(Measure.valueOf(i, BYTE).doubleValue(BYTE));
 	}
 	
 	//Bytes to Petabytes
-	public double BtoP(double i) {
+	public double BtoPB(double i) {
 		return BYTE.getConverterTo(PETABYTE).convert(Measure.valueOf(i, BYTE).doubleValue(BYTE));
 	}
 	
 	//Bytes to Exabytes
-	public double BtoE(double i) {
+	public double BtoEB(double i) {
 		return BYTE.getConverterTo(EXABYTE).convert(Measure.valueOf(i, BYTE).doubleValue(BYTE));
 	}
 	
 	//Bytes to Zettabytes
-	public double BtoZ(double i) {
+	public double BtoZB(double i) {
 		return BYTE.getConverterTo(ZETTABYTE).convert(Measure.valueOf(i, BYTE).doubleValue(BYTE));
 	}
 	
 	//Bytes to Yottabytes
-	public double BtoY(double i) {
+	public double BtoYB(double i) {
 		return BYTE.getConverterTo(YOTTABYTE).convert(Measure.valueOf(i, BYTE).doubleValue(BYTE));
 	}
 	
 	//Kilobytes to Bytes
-	public double ktoB(double i) {
+	public double kBtoB(double i) {
 		return KILOBYTE.getConverterTo(BYTE).convert(Measure.valueOf(i, KILOBYTE).doubleValue(KILOBYTE));
 	}
 	
 	//Kilobytes to Bits
-	public double ktob(double i) {
+	public double kBtob(double i) {
 		return KILOBYTE.getConverterTo(BIT).convert(Measure.valueOf(i, KILOBYTE).doubleValue(KILOBYTE));
 	}
 	
 	//Kilobytes to Megabytes
-	public double ktoM(double i) {
+	public double kBtoMB(double i) {
 		return KILOBYTE.getConverterTo(MEGABYTE).convert(Measure.valueOf(i, KILOBYTE).doubleValue(KILOBYTE));
 	}
 	
 	//Kilobytes to Gigabytes
-	public double ktoG(double i) {
+	public double kBtoGB(double i) {
 		return KILOBYTE.getConverterTo(GIGABYTE).convert(Measure.valueOf(i, KILOBYTE).doubleValue(KILOBYTE));
 	}
 	
 	//Kilobytes to Terabytes
-	public double ktoT(double i) {
+	public double kBtoTB(double i) {
 		return KILOBYTE.getConverterTo(TERABYTE).convert(Measure.valueOf(i, KILOBYTE).doubleValue(KILOBYTE));
 	}
 	
 	//Kilobytes to Petabytes
-	public double ktoP(double i) {
+	public double kBtoPB(double i) {
 		return KILOBYTE.getConverterTo(PETABYTE).convert(Measure.valueOf(i, KILOBYTE).doubleValue(KILOBYTE));
 	}
 	
 	//Kilobytes to Exabytes
-	public double ktoE(double i) {
+	public double kBtoEB(double i) {
 		return KILOBYTE.getConverterTo(EXABYTE).convert(Measure.valueOf(i, KILOBYTE).doubleValue(KILOBYTE));
 	}
 	
 	//Kilobytes to Zettabytes
-	public double ktoZ(double i) {
+	public double kBtoZB(double i) {
 		return KILOBYTE.getConverterTo(ZETTABYTE).convert(Measure.valueOf(i, KILOBYTE).doubleValue(KILOBYTE));
 	}
 	
 	//Kilobytes to Yottabytes
-	public double ktoY(double i) {
+	public double kBtoYB(double i) {
 		return KILOBYTE.getConverterTo(YOTTABYTE).convert(Measure.valueOf(i, KILOBYTE).doubleValue(KILOBYTE));
 	}
 	
 	//Megabytes to Bytes
-	public double MtoB(double i) {
+	public double MBtoB(double i) {
 		return MEGABYTE.getConverterTo(BYTE).convert(Measure.valueOf(i, MEGABYTE).doubleValue(MEGABYTE));
 	}
 	
 	//Megabytes to Bits
-	public double Mtob(double i) {
+	public double MBtob(double i) {
 		return MEGABYTE.getConverterTo(BIT).convert(Measure.valueOf(i, MEGABYTE).doubleValue(MEGABYTE));
 	}
 	
 	//Megabytes to Kilobytes
-	public double Mtok(double i) {
+	public double MBtokB(double i) {
 		return MEGABYTE.getConverterTo(KILOBYTE).convert(Measure.valueOf(i, MEGABYTE).doubleValue(MEGABYTE));
 	}
 	
 	//Megabytes to Gigabytes
-	public double MtoG(double i) {
+	public double MBtoGB(double i) {
 		return MEGABYTE.getConverterTo(GIGABYTE).convert(Measure.valueOf(i, MEGABYTE).doubleValue(MEGABYTE));
 	}
 	
 	//Megabytes to Terabytes
-	public double MtoT(double i) {
+	public double MBtoTB(double i) {
 		return MEGABYTE.getConverterTo(TERABYTE).convert(Measure.valueOf(i, MEGABYTE).doubleValue(MEGABYTE));
 	}
 	
 	//Megabytes to Petabytes
-	public double MtoP(double i) {
+	public double MBtoPB(double i) {
 		return MEGABYTE.getConverterTo(PETABYTE).convert(Measure.valueOf(i, MEGABYTE).doubleValue(MEGABYTE));
 	}
 	
 	//Megabytes to Exabytes
-	public double MtoE(double i) {
+	public double MBtoEB(double i) {
 		return MEGABYTE.getConverterTo(EXABYTE).convert(Measure.valueOf(i, MEGABYTE).doubleValue(MEGABYTE));
 	}
 	
 	//Megabytes to Zettabytes
-	public double MtoZ(double i) {
+	public double MBtoZB(double i) {
 		return MEGABYTE.getConverterTo(ZETTABYTE).convert(Measure.valueOf(i, MEGABYTE).doubleValue(MEGABYTE));
 	}
 	
 	//Megabytes to Yottabytes
-	public double MtoY(double i) {
+	public double MBtoYB(double i) {
 		return MEGABYTE.getConverterTo(YOTTABYTE).convert(Measure.valueOf(i, MEGABYTE).doubleValue(MEGABYTE));
 	}
 	
 	//Gigabytes to Bytes
-	public double GtoB(double i) {
+	public double GBtoB(double i) {
 		return GIGABYTE.getConverterTo(BYTE).convert(Measure.valueOf(i, GIGABYTE).doubleValue(GIGABYTE));
 	}
 	
 	//Gigabytes to Bits
-	public double Gtob(double i) {
+	public double GBtob(double i) {
 		return GIGABYTE.getConverterTo(BIT).convert(Measure.valueOf(i, GIGABYTE).doubleValue(GIGABYTE));
 	}
 	
 	//Gigabytes to Kilobytes
-	public double Gtok(double i) {
+	public double GBtokB(double i) {
 		return GIGABYTE.getConverterTo(KILOBYTE).convert(Measure.valueOf(i, GIGABYTE).doubleValue(GIGABYTE));
 	}
 	
 	//Gigabytes to Megabytes
-	public double GtoM(double i) {
+	public double GBtoMB(double i) {
 		return GIGABYTE.getConverterTo(MEGABYTE).convert(Measure.valueOf(i, GIGABYTE).doubleValue(GIGABYTE));
 	}
 	
 	//Gigabytes to Terabytes
-	public double GtoT(double i) {
+	public double GBtoTB(double i) {
 		return GIGABYTE.getConverterTo(TERABYTE).convert(Measure.valueOf(i, GIGABYTE).doubleValue(GIGABYTE));
 	}
 	
 	//Gigabytes to Petabytes
-	public double GtoP(double i) {
+	public double GBtoPB(double i) {
 		return GIGABYTE.getConverterTo(PETABYTE).convert(Measure.valueOf(i, GIGABYTE).doubleValue(GIGABYTE));
 	}
 	
 	//Gigabytes to Exabytes
-	public double GtoE(double i) {
+	public double GBtoEB(double i) {
 		return GIGABYTE.getConverterTo(EXABYTE).convert(Measure.valueOf(i, GIGABYTE).doubleValue(GIGABYTE));
 	}
 	
 	//Gigabytes to Zettabytes
-	public double GtoZ(double i) {
+	public double GBtoZB(double i) {
 		return GIGABYTE.getConverterTo(ZETTABYTE).convert(Measure.valueOf(i, GIGABYTE).doubleValue(GIGABYTE));
 	}
 	
 	//Gigabytes to Yottabytes
-	public double GtoY(double i) {
+	public double GBtoYB(double i) {
 		return GIGABYTE.getConverterTo(YOTTABYTE).convert(Measure.valueOf(i, GIGABYTE).doubleValue(GIGABYTE));
 	}
 	
 	//Terabytes to Bytes
-	public double TtoB(double i) {
+	public double TBtoB(double i) {
 		return TERABYTE.getConverterTo(BYTE).convert(Measure.valueOf(i, TERABYTE).doubleValue(TERABYTE));
 	}
 	
 	//Terabytes to Bits
-	public double Ttob(double i) {
+	public double TBtob(double i) {
 		return TERABYTE.getConverterTo(BIT).convert(Measure.valueOf(i, TERABYTE).doubleValue(TERABYTE));
 	}
 	
 	//Terabytes to Kilobytes
-	public double Ttok(double i) {
+	public double TBtokB(double i) {
 		return TERABYTE.getConverterTo(KILOBYTE).convert(Measure.valueOf(i, TERABYTE).doubleValue(TERABYTE));
 	}
 	
 	//Terabytes to Megabytes
-	public double TtoM(double i) {
+	public double TBtoMB(double i) {
 		return TERABYTE.getConverterTo(MEGABYTE).convert(Measure.valueOf(i, TERABYTE).doubleValue(TERABYTE));
 	}
 	
 	//Terabytes to Gigabytes
-	public double TtoG(double i) {
+	public double TBtoGB(double i) {
 		return TERABYTE.getConverterTo(GIGABYTE).convert(Measure.valueOf(i, TERABYTE).doubleValue(TERABYTE));
 	}
 	
 	//Terabytes to Petabytes
-	public double TtoP(double i) {
+	public double TBtoPB(double i) {
 		return TERABYTE.getConverterTo(PETABYTE).convert(Measure.valueOf(i, TERABYTE).doubleValue(TERABYTE));
 	}
 	
 	//Terabytes to Exabytes
-	public double TtoE(double i) {
+	public double TBtoEB(double i) {
 		return TERABYTE.getConverterTo(EXABYTE).convert(Measure.valueOf(i, TERABYTE).doubleValue(TERABYTE));
 	}
 	
 	//Terabytes to Zettabytes
-	public double TtoZ(double i) {
+	public double TBtoZB(double i) {
 		return TERABYTE.getConverterTo(ZETTABYTE).convert(Measure.valueOf(i, TERABYTE).doubleValue(TERABYTE));
 	}
 	
 	//Terabytes to Yottabytes
-	public double TtoY(double i) {
+	public double TBtoYB(double i) {
 		return TERABYTE.getConverterTo(YOTTABYTE).convert(Measure.valueOf(i, TERABYTE).doubleValue(TERABYTE));
 	}
 	
 	//Petabytes to Bytes
-	public double PtoB(double i) {
+	public double PBtoB(double i) {
 		return PETABYTE.getConverterTo(BYTE).convert(Measure.valueOf(i, PETABYTE).doubleValue(PETABYTE));
 	}
 	
 	//Petabytes to Bits
-	public double Ptob(double i) {
+	public double PBtob(double i) {
 		return PETABYTE.getConverterTo(BIT).convert(Measure.valueOf(i, PETABYTE).doubleValue(PETABYTE));
 	}
 	
 	//Petabytes to Kilobytes
-	public double Ptok(double i) {
+	public double PBtokB(double i) {
 		return PETABYTE.getConverterTo(KILOBYTE).convert(Measure.valueOf(i, PETABYTE).doubleValue(PETABYTE));
 	}
 	
 	//Petabytes to Megabytes
-	public double PtoM(double i) {
+	public double PBtoMB(double i) {
 		return PETABYTE.getConverterTo(MEGABYTE).convert(Measure.valueOf(i, PETABYTE).doubleValue(PETABYTE));
 	}
 	
 	//Petabytes to Gigabytes
-	public double PtoG(double i) {
+	public double PBtoGB(double i) {
 		return PETABYTE.getConverterTo(GIGABYTE).convert(Measure.valueOf(i, PETABYTE).doubleValue(PETABYTE));
 	}
 	
 	//Petabytes to Terabytes
-	public double PtoT(double i) {
+	public double PBtoTB(double i) {
 		return PETABYTE.getConverterTo(TERABYTE).convert(Measure.valueOf(i, PETABYTE).doubleValue(PETABYTE));
 	}
 	
 	//Petabytes to Exabytes
-	public double PtoE(double i) {
+	public double PBtoEB(double i) {
 		return PETABYTE.getConverterTo(EXABYTE).convert(Measure.valueOf(i, PETABYTE).doubleValue(PETABYTE));
 	}
 	
 	//Petabytes to Zettabytes
-	public double PtoZ(double i) {
+	public double PBtoZB(double i) {
 		return PETABYTE.getConverterTo(ZETTABYTE).convert(Measure.valueOf(i, PETABYTE).doubleValue(PETABYTE));
 	}
 	
 	//Petabytes to Yottabytes
-	public double PtoY(double i) {
+	public double PBtoYB(double i) {
 		return PETABYTE.getConverterTo(YOTTABYTE).convert(Measure.valueOf(i, PETABYTE).doubleValue(PETABYTE));
 	}
 	
 	//Exabytes to Bytes
-	public double EtoB(double i) {
+	public double EBtoB(double i) {
 		return EXABYTE.getConverterTo(BYTE).convert(Measure.valueOf(i, EXABYTE).doubleValue(EXABYTE));
 	}
 	
 	//Exabytes to Bits
-	public double Etob(double i) {
+	public double EBtob(double i) {
 		return EXABYTE.getConverterTo(BIT).convert(Measure.valueOf(i, EXABYTE).doubleValue(EXABYTE));
 	}
 	
 	//Exabytes to Kilobytes
-	public double Etok(double i) {
+	public double EBtokB(double i) {
 		return EXABYTE.getConverterTo(KILOBYTE).convert(Measure.valueOf(i, EXABYTE).doubleValue(EXABYTE));
 	}
 	
 	//Exabytes to Megabytes
-	public double EtoM(double i) {
+	public double EBtoMB(double i) {
 		return EXABYTE.getConverterTo(MEGABYTE).convert(Measure.valueOf(i, EXABYTE).doubleValue(EXABYTE));
 	}
 	
 	//Exabytes to Gigabytes
-	public double EtoG(double i) {
+	public double EBtoGB(double i) {
 		return EXABYTE.getConverterTo(GIGABYTE).convert(Measure.valueOf(i, EXABYTE).doubleValue(EXABYTE));
 	}
 	
 	//Exabytes to Terabytes
-	public double EtoT(double i) {
+	public double EBtoTB(double i) {
 		return EXABYTE.getConverterTo(TERABYTE).convert(Measure.valueOf(i, EXABYTE).doubleValue(EXABYTE));
 	}
 	
 	//Exabytes to Petabytes
-	public double EtoP(double i) {
+	public double EBtoPB(double i) {
 		return EXABYTE.getConverterTo(PETABYTE).convert(Measure.valueOf(i, EXABYTE).doubleValue(EXABYTE));
 	}
 	
 	//Exabytes to Zettabytes
-	public double EtoZ(double i) {
+	public double EBtoZB(double i) {
 		return EXABYTE.getConverterTo(ZETTABYTE).convert(Measure.valueOf(i, EXABYTE).doubleValue(EXABYTE));
 	}
 	
 	//Exabytes to Yottabytes
-	public double EtoY(double i) {
+	public double EBtoYB(double i) {
 		return EXABYTE.getConverterTo(YOTTABYTE).convert(Measure.valueOf(i, EXABYTE).doubleValue(EXABYTE));
 	}
 	
 	//Zettabytes to Bytes
-	public double ZtoB(double i) {
+	public double ZBtoB(double i) {
 		return ZETTABYTE.getConverterTo(BYTE).convert(Measure.valueOf(i, ZETTABYTE).doubleValue(ZETTABYTE));
 	}
 	
 	//Zettabytes to Bits
-	public double Ztob(double i) {
+	public double ZBtob(double i) {
 		return ZETTABYTE.getConverterTo(BIT).convert(Measure.valueOf(i, ZETTABYTE).doubleValue(ZETTABYTE));
 	}
 	
 	//Zettabytes to Kilobytes
-	public double Ztok(double i) {
+	public double ZBtokB(double i) {
 		return ZETTABYTE.getConverterTo(KILOBYTE).convert(Measure.valueOf(i, ZETTABYTE).doubleValue(ZETTABYTE));
 	}
 	
 	//Zettabytes to Megabytes
-	public double ZtoM(double i) {
+	public double ZBtoMB(double i) {
 		return ZETTABYTE.getConverterTo(MEGABYTE).convert(Measure.valueOf(i, ZETTABYTE).doubleValue(ZETTABYTE));
 	}
 	
 	//Zettabytes to Gigabytes
-	public double ZtoG(double i) {
+	public double ZBtoGB(double i) {
 		return ZETTABYTE.getConverterTo(GIGABYTE).convert(Measure.valueOf(i, ZETTABYTE).doubleValue(ZETTABYTE));
 	}
 	
 	//Zettabytes to Terabytes
-	public double ZtoT(double i) {
+	public double ZBtoTB(double i) {
 		return ZETTABYTE.getConverterTo(TERABYTE).convert(Measure.valueOf(i, ZETTABYTE).doubleValue(ZETTABYTE));
 	}
 	
 	//Zettabytes to Petabytes
-	public double ZtoP(double i) {
+	public double ZBtoPB(double i) {
 		return ZETTABYTE.getConverterTo(PETABYTE).convert(Measure.valueOf(i, ZETTABYTE).doubleValue(ZETTABYTE));
 	}
 	
 	//Zettabytes to Exobytes
-	public double ZtoE(double i) {
+	public double ZBtoEB(double i) {
 		return ZETTABYTE.getConverterTo(EXABYTE).convert(Measure.valueOf(i, ZETTABYTE).doubleValue(ZETTABYTE));
 	}
 	
 	//Zettabytes to Yottabytes
-	public double ZtoY(double i) {
+	public double ZBtoYB(double i) {
 		return ZETTABYTE.getConverterTo(YOTTABYTE).convert(Measure.valueOf(i, ZETTABYTE).doubleValue(ZETTABYTE));
 	}
 	
 	//Yottabytes to Bytes
-	public double YtoB(double i) {
+	public double YBtoB(double i) {
 		return YOTTABYTE.getConverterTo(BYTE).convert(Measure.valueOf(i, YOTTABYTE).doubleValue(YOTTABYTE));
 	}
 	
 	//Yottabytes to Bits
-	public double Ytob(double i) {
+	public double YBtob(double i) {
 		return YOTTABYTE.getConverterTo(BIT).convert(Measure.valueOf(i, YOTTABYTE).doubleValue(YOTTABYTE));
 	}
 	
 	//Yottabytes to Kilobytes
-	public double Ytok(double i) {
+	public double YBtokB(double i) {
 		return YOTTABYTE.getConverterTo(KILOBYTE).convert(Measure.valueOf(i, YOTTABYTE).doubleValue(YOTTABYTE));
 	}
 	
 	//Yottabytes to Megabytes
-	public double YtoM(double i) {
+	public double YBtoMB(double i) {
 		return YOTTABYTE.getConverterTo(MEGABYTE).convert(Measure.valueOf(i, YOTTABYTE).doubleValue(YOTTABYTE));
 	}
 	
 	//Yottabytes to Gigabytes
-	public double YtoG(double i) {
+	public double YBtoGB(double i) {
 		return YOTTABYTE.getConverterTo(GIGABYTE).convert(Measure.valueOf(i, YOTTABYTE).doubleValue(YOTTABYTE));
 	}
 	
 	//Yottabytes to Terabytes
-	public double YtoT(double i) {
+	public double YBtoTB(double i) {
 		return YOTTABYTE.getConverterTo(TERABYTE).convert(Measure.valueOf(i, YOTTABYTE).doubleValue(YOTTABYTE));
 	}
 	
 	//Yottabytes to Petabytes
-	public double YtoP(double i) {
+	public double YBtoPB(double i) {
 		return YOTTABYTE.getConverterTo(PETABYTE).convert(Measure.valueOf(i, YOTTABYTE).doubleValue(YOTTABYTE));
 	}
 	
 	//Yottabytes to Exobytes
-	public double YtoE(double i) {
+	public double YBtoEB(double i) {
 		return YOTTABYTE.getConverterTo(EXABYTE).convert(Measure.valueOf(i, YOTTABYTE).doubleValue(YOTTABYTE));
 	}
 	
 	//Yottabytes to Zettabytes
-	public double YtoZ(double i) {
+	public double YBtoZB(double i) {
 		return YOTTABYTE.getConverterTo(ZETTABYTE).convert(Measure.valueOf(i, YOTTABYTE).doubleValue(YOTTABYTE));
 	}
-	
 }
