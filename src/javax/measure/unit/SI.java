@@ -141,6 +141,8 @@ public final class SI extends SystemOfUnits {
      */
     public static final Unit<Mass> GRAM = KILOGRAM.divide(1000);
 
+    public static final Unit<Mass> MILLIGRAM = GRAM.times(1000);
+
     /**
      * The unit for plane angle quantities (<code>rad</code>).
      * One radian is the angle between two radii of a circle such that the
