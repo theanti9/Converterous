@@ -113,8 +113,10 @@ public class UnitData {
 		return unitTypes.get(index);
 	}
 	
-	public static boolean getIsSIAtIndex(int index) {
-		return allUnitClasses.get(index).booleanValue();
+	public static boolean getIsSIFor(int type, int local_index) {
+		String type_name = unitTypes.get(type);
+		String unit = getUnitAtIndex(type_name, local_index);
+		return allUnitClasses.get(allUnits.indexOf(unit)).booleanValue();
 	}
 	
 	//returns ArrayList of units, given a type

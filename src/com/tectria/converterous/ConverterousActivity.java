@@ -432,10 +432,11 @@ public class ConverterousActivity extends Activity {
 			fromnum = Double.parseDouble(getNumeric(txtFromVal.getText().toString()));
 		}
 		lblTo.setText(casecor(UnitData.getUnitAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlTo.getCurrentItem() + offset)));
-		converter.setFromUnit(UnitData.getAbvAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlFrom.getCurrentItem()));
-		converter.setToUnit(UnitData.getAbvAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlTo.getCurrentItem() + offset));
+		converter.setFromUnit(UnitData.getUnitAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlFrom.getCurrentItem()));
+		converter.setToUnit(UnitData.getUnitAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlTo.getCurrentItem() + offset));
 		converter.setFromNum(fromnum);
-		converter.setFromSI(UnitData.getIsSIAtIndex(UnitData.getUnitAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlFrom.getCurrentItem())));
+		converter.setFromSI(UnitData.getIsSIFor(whlType.getCurrentItem(), whlFrom.getCurrentItem()));
+		converter.setToSI(UnitData.getIsSIFor(whlType.getCurrentItem(), whlTo.getCurrentItem() + offset));
 		txtToVal.setText(Html.fromHtml(dec.format(converter.convert()) + "<small><small>" + UnitData.getAbvAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlTo.getCurrentItem() + offset) + "</small></small>"));
 		//If string length increased
 		if(txtToVal.getText().length() > lastToLen) {
@@ -458,9 +459,11 @@ public class ConverterousActivity extends Activity {
 			offset = 1;
 		}
 		
-		converter.setFromUnit(UnitData.getAbvAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlFrom.getCurrentItem()));
-		converter.setToUnit(UnitData.getAbvAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlTo.getCurrentItem() + offset));
+		converter.setFromUnit(UnitData.getUnitAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlFrom.getCurrentItem()));
+		converter.setToUnit(UnitData.getUnitAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlTo.getCurrentItem() + offset));
 		converter.setFromNum(Double.parseDouble(getNumeric(txtFromVal.getText().toString())));
+		converter.setFromSI(UnitData.getIsSIFor(whlType.getCurrentItem(), whlFrom.getCurrentItem()));
+		converter.setToSI(UnitData.getIsSIFor(whlType.getCurrentItem(), whlTo.getCurrentItem() + offset));
 		
 		txtFromVal.setText(Html.fromHtml(getNumeric(txtFromVal.getText().toString()) + "<small><small>" + UnitData.getAbvAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlFrom.getCurrentItem()) + "</small></small>"));
 		txtToVal.setText(Html.fromHtml(dec.format(converter.convert()) + "<small><small>" + UnitData.getAbvAtIndex(UnitData.getTypeAtIndex(whlType.getCurrentItem()), whlTo.getCurrentItem() + offset) + "</small></small>"));
