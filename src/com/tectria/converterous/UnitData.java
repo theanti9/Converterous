@@ -113,6 +113,10 @@ public class UnitData {
 		return unitTypes.get(index);
 	}
 	
+	public static boolean getIsSIAtIndex(int index) {
+		return allUnitClasses.get(index).booleanValue();
+	}
+	
 	//returns ArrayList of units, given a type
 	public static ArrayList<String> getUnitsFor(String type) {
 		final char typechar = type.charAt(0);
@@ -185,6 +189,27 @@ public class UnitData {
 		"celsius",
 		"fahrenheit",
 		"kelvin"
+	));
+	
+	/*
+	 * All Units (Used for quick lookups)
+	 */
+	private static final ArrayList<Boolean> allUnitClasses = new ArrayList<Boolean>(Arrays.asList(
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		true
 	));
 	
 	/*

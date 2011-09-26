@@ -1,9 +1,14 @@
 package com.tectria.converterous;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import javax.measure.Measure;
+import javax.measure.converter.UnitConverter;
+import javax.measure.unit.Unit;
+
+
 import static javax.measure.unit.NonSI.*;
 import static javax.measure.unit.SI.*;
 
@@ -11,28 +16,80 @@ public class ConvertTool {
 	
 	private String toUnit;
 	private String fromUnit;
-	private double toNum;
+	//private double toNum;
 	private double fromNum;
+	//private boolean isSI;
+	private boolean fromSI;
+	private boolean toSI;
 	
-	public ConvertTool(String toUnit, String fromUnit, double fromNum) {
+	public ConvertTool(String toUnit, String fromUnit, double fromNum, boolean fromSI, boolean toSI) {
 		this.toUnit = toUnit;
 		this.fromUnit = fromUnit;
-		this.toNum = 0.0;
+		//this.toNum = 0.0;
 		this.fromNum = fromNum;
+		this.fromSI = fromSI;
+		this.toSI = toSI;
 	}
 	
 	public ConvertTool() {
 		this.toUnit = null;
 		this.fromUnit = null;
-		this.toNum = 0.0;
+		//this.toNum = 0.0;
 		this.fromNum = 0.0;
+		this.fromSI = true;
+		this.toSI = true;
 	}
 	
 	@SuppressWarnings("rawtypes")
 	public double convert() {
-		String name = (this.fromUnit + "to" + this.toUnit).replace(" ", "_").replaceAll("[^a-zA-Z0-9_]", "");
-		
+		//String name = (this.fromUnit + "to" + this.toUnit).replace(" ", "_").replaceAll("[^a-zA-Z0-9_]", "");
+		String name = "javax.measure.unit.";
 		try {
+			String fromSi;
+			String toSi;
+			if (this.fromSI){
+				fromSi = "SI";
+			} else {
+				fromSi = "NonSI";
+			}
+			if (this.toSI){
+				toSi = "SI";
+			} else {
+				toSi = "NonSI";
+			}
+			Class fromUnitClass = Class.forName(name.concat(fromSi));
+			Class toUnitClass = Class.forName(name.concat(toSi));
+			Field fromUnitField;
+			Field toUnitField;
+			Unit fromUnit;
+			Unit toUnit;
+			fromUnitField = fromUnitClass.getField(this.fromUnit);
+			toUnitField = toUnitClass.getField(this.toUnit);
+			fromUnit = (Unit)fromUnitField.get(fromUnitClass);
+			toUnit = (Unit)toUnitField.get(toUnitClass);
+			
+			return fromUnit.getConverterTo(toUnit).convert(Measure.valueOf(this.fromNum, fromUnit).doubleValue(fromUnit));
+			
+			//Class fromUnitClass = Class.forName(name.concat(this.fromUnit));
+			//Class toUnitClass = Class.forName(name.concat(this.toUnit));
+			//Class fromSubClass = Class.forName(name.concat("Dimension"));
+//			UnitConverter unitConverter;
+//			Class parTypes[] = new Class[1];
+//			parTypes[0] = Unit.class;
+//			
+//			Object getConvertToObject = unitClass.getField(this.fromUnit);
+//			Object toUnitClass = unitClass.getField(this.toUnit);
+//			Object arg[] = new Object[1];
+//			arg[0] = toUnitClass;
+//			unitConverter = null;
+//			//Object object = getConvertToObject
+//			
+//			return ((UnitConverter)getConvertToObject).convert(Measure.valueOf(this.fromNum, ));
+			
+			//unitConverter
+			
+			
+			/*
 			Class cla = Class.forName("com.tectria.converterous.ConvertTool");
 			Class partypes[] = new Class[1]; 
 			partypes[0] = Double.TYPE;
@@ -44,20 +101,31 @@ public class ConvertTool {
 			this.toNum = ((Double)object).doubleValue();
 			
 			return this.toNum;
+			*/
 			
-		} catch (NoSuchMethodException e) {
-			return 0.0;
+			
+			
+			
 		} catch (SecurityException e) {
 			return 0.0;
 		} catch (IllegalAccessException e) {
 			return 0.0;
 		} catch (IllegalArgumentException e) {
 			return 0.0;
-		} catch (InvocationTargetException e) {
-			return 0.0;
 		} catch (ClassNotFoundException e) {
 			return 0.0;
+		} catch (NoSuchFieldException e) {
+			// TODO Auto-generated catch block
+			return 0.0;
 		}
+	}
+	
+	public void setFromSI(boolean b) {
+		this.fromSI = b;
+	}
+	
+	public void setToSI(boolean b) {
+		this.toSI = b;
 	}
 	
 	public void setFromNum(double n) {
