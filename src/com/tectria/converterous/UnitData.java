@@ -116,7 +116,7 @@ public class UnitData {
 	public static boolean getIsSIFor(int type, int local_index) {
 		String type_name = unitTypes.get(type);
 		String unit = getUnitAtIndex(type_name, local_index);
-		return allUnitClasses.get(allUnits.indexOf(unit)).booleanValue();
+		return allUnitsSI.get(allUnits.indexOf(unit)).booleanValue();
 	}
 	
 	//returns ArrayList of units, given a type
@@ -260,13 +260,15 @@ public class UnitData {
 		"CELSIUS",
 		"FAHRENHEIT",
 		"KELVIN",
-		"RANKINE"
+		"RANKINE",
+		"CURIE",
+		"RUTHERFORD"
 	));
 	
 	/*
 	 * All Units (Used for quick lookups)
 	 */
-	private static final ArrayList<Boolean> allUnitClasses = new ArrayList<Boolean>(Arrays.asList(
+	private static final ArrayList<Boolean> allUnitsSI = new ArrayList<Boolean>(Arrays.asList(
 		false, // Hour
 		false, // Minute
 		false, // Second
@@ -286,7 +288,29 @@ public class UnitData {
 		false, // pint liquid us
 		false, // pint liquid uk,
 		false, // pint dry us
-		false // pint dry uk
+		false, // pint dry uk
+		false, // quart liquid us
+		false, // quart liquid uk
+		false, // quart dry us
+		false, // quart dry uk
+		false, // gallon liquid us
+		false, // gallon liquid uk
+		false, // gallon dry us
+		false, // gallon dry uk
+		false, // inch
+		false, // foot
+		false, // mile
+		false, // nautical mile
+		false, // angstrom
+		false, // astronomical unit
+		false, // light year
+		false, // parsec
+		true, // celsius
+		false, // fahrenheit
+		true, // kelvin
+		false, // rankine
+		false, // curie
+		false // rutherford
 	));
 	
 	/*
@@ -300,19 +324,41 @@ public class UnitData {
 		"week",
 		"year",
 		"mg",
-		"mg",
 		"g",
 		"kg",
+		"lbs",
+		"ST",
+		"ton",
+		"t",
+		"oz",
+		"fl oz",
+		"fl oz",
+		"pt",
+		"pt",
+		"pt",
 		"pt",
 		"qt",
+		"qt",
+		"qt",
+		"qt",
+		"gal",
+		"gal",
+		"gal",
 		"gal",
 		"in",
 		"ft",
 		"mi",
+		"NM",
+		"Å",
+		"AU",
+		"ly",
+		"pc",
 		"°C",
 		"°F",
 		"°K",
-		"°R"
+		"°R",
+		"Ci",
+		"rd"
 	));
 	
 	/*
@@ -384,9 +430,14 @@ public class UnitData {
 	));
 	
 	private static final ArrayList<String> massUnitsAbv = new ArrayList<String>(Arrays.asList(
-		"mg", //milligram
-		"g", //gram
-		"kg" //kilogram
+			"mg",
+			"g",
+			"kg",
+			"lbs",
+			"ST",
+			"ton",
+			"t",
+			"oz"
 	));
 	
 	
@@ -411,9 +462,20 @@ public class UnitData {
 	));
 	
 	private static final ArrayList<String> volumeUnitsAbv = new ArrayList<String>(Arrays.asList(
-		"pt", //pint
-		"qt", //quart
-		"gal" //gallon
+			"fl oz",
+			"fl oz",
+			"pt",
+			"pt",
+			"pt",
+			"pt",
+			"qt",
+			"qt",
+			"qt",
+			"qt",
+			"gal",
+			"gal",
+			"gal",
+			"gal"
 	));
 	
 	
@@ -432,9 +494,18 @@ public class UnitData {
 	));
 	
 	private static final ArrayList<String> distanceUnitsAbv = new ArrayList<String>(Arrays.asList(
-		"in", //inch
-		"ft", //foot
-		"mi" //mine
+			"in",
+			"ft",
+			"mi",
+			"NM",
+			"Å",
+			"AU",
+			"ly",
+			"pc",
+			"°C",
+			"°F",
+			"°K",
+			"°R"
 	));
 	
 	
@@ -453,6 +524,9 @@ public class UnitData {
 	private static final ArrayList<String> timeUnitsAbv = new ArrayList<String>(Arrays.asList(
 		"h", //hour
 		"m", //minute
-		"s" //second
+		"s", //second
+		"day",
+		"week",
+		"year"
 	));
 }
