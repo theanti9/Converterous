@@ -5,13 +5,13 @@
     <uses-sdk android:minSdkVersion="8" />
 
     <application android:icon="@drawable/icon" android:label="@string/app_name">
-        <activity android:label="@string/app_name" android:name="ConverterousActivity" android:theme="@android:style/Theme.NoTitleBar">
+        <activity android:label="@string/app_name" android:name=".ConverterousActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ConverterActivity" android:label="Converter" android:theme="@android:style/Theme.NoTitleBar"></activity>
-        <activity android:name=".FavoriteListActivity" android:label="Favorites" android:theme="@android:style/Theme.NoTitleBar"></activity>
+        <activity android:name=".ConverterActivity" android:label="Converter"></activity>
+        <activity android:name=".FavoriteListActivity" android:label="Favorites"></activity>
     </application>
 </manifest>
