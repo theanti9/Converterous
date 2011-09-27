@@ -113,6 +113,16 @@ public class UnitData {
 		
 	}
 	
+	//returns unit constant name, given type index and index
+	public static String getConst(int type, int index) {
+		return allUnitsConst.get(allUnits.indexOf(arrayFor(type).get(index)));
+	}
+	
+	//returns unit constant name, given type index and index
+	public static String getConst(String unit) {
+		return allUnitsConst.get(allUnits.indexOf(unit));
+	}
+	
 	//returns unit type, given a unit name or abbreviation
 	public static String getType(String unit, boolean abv) {
 		if(abv) {
@@ -158,48 +168,45 @@ public class UnitData {
 	 * All Units (Used for quick lookups)
 	 */
 	private static final ArrayList<String> allUnits = new ArrayList<String>(Arrays.asList(
-		"hour",
-		"minute",
-		"second",
-		"day",
-		"week",
-		"year",
-		"milligram",
-		"gram",
-		"kilogram",
-		"pound",
-		"ton (US)",
-		"ton (uk)",
-		"ton (metric)",
-		"ounce",
-		"ounce (liquid, US)",
-		"ounce (liquid, UK)",
-		"pint (liquid, US)",
-		"pint (liquid, UK)",
-		"pint (dry, US)",
-		"pint (dry, UK)",
-		"quart (liquid, US)",
-		"quart (liquid, Uk)",
-		"quart (dry, US)",
-		"quart (dry, UK)",
-		"gallon (liquid, US)",
-		"gallon (liquid, UK)",
-		"gallon (dry, US)",
-		"gallon (dry, UK)",
-		"inch",
-		"foot",
-		"mile",
-		"nautical mile",
-		"angstrom",
-		"astronomical unit",
-		"light year",
-		"parsec",
-		"celsius",
-		"fahrenheit",
-		"kelvin",
-		"rankine",
-		"curie",
-		"rutherford"
+		"Hour",
+		"Minute",
+		"Second",
+		"Day",
+		"Week",
+		"Year",
+		"Milligram",
+		"Gram",
+		"Kilogram",
+		"Pound",
+		"Ton (US)",
+		"Ton (UK)",
+		"Metric Ton",
+		"Ounce",
+		"US Fluid Ounce",
+		"US Liquid Pint",
+		"US Liquid Quart",
+		"US Liquid Gallon",
+		"US Dry Pint",
+		"US Dry Quart",
+		"US Dry Gallon",
+		"UK Fluid Ounce",
+		"UK Pint",
+		"UK Quart",
+		"UK Gallon",
+		"Inch",
+		"Foot",
+		"Mile",
+		"Nautical Mile",
+		"Angstrom",
+		"Astronomical Unit",
+		"Light Year",
+		"Parsec",
+		"Celsius",
+		"Fahrenheit",
+		"Kelvin",
+		"Rankine",
+		"Curie",
+		"Rutherford"
 	));
 	
 	private static final ArrayList<String> allUnitsConst = new ArrayList<String>(Arrays.asList(
@@ -218,19 +225,16 @@ public class UnitData {
 		"METRIC_TON",
 		"OUNCE",
 		"OUNCE_LIQUID_US",
-		"OUNCE_LIQUID_UK",
 		"PINT_LIQUID_US",
-		"PINT_LIQUID_UK",
-		"PINT_DRY_US",
-		"PINT_DRY_UK",
 		"QUART_LIQUID_US",
-		"QUART_LIQUID_UK",
-		"QUART_DRY_US",
-		"QUART_DRY_UK",
 		"GALLON_LIQUID_US",
-		"GALLON_LIQUID_UK",
+		"PINT_DRY_US",
+		"QUART_DRY_US",
 		"GALLON_DRY_US",
-		"GALLON_DRY_UK",
+		"OUNCE_LIQUID_UK",
+		"PINT_LIQUID_UK",
+		"QUART_LIQUID_UK",
+		"GALLON_LIQUID_UK",
 		"INCH",
 		"FOOT",
 		"MILE",
@@ -270,15 +274,12 @@ public class UnitData {
 		false, // pint liquid us
 		false, // pint liquid uk,
 		false, // pint dry us
-		false, // pint dry uk
 		false, // quart liquid us
 		false, // quart liquid uk
 		false, // quart dry us
-		false, // quart dry uk
 		false, // gallon liquid us
 		false, // gallon liquid uk
 		false, // gallon dry us
-		false, // gallon dry uk
 		false, // inch
 		false, // foot
 		false, // mile
@@ -308,24 +309,21 @@ public class UnitData {
 		"mg",
 		"g",
 		"kg",
-		"lbs",
+		"lb",
 		"ST",
 		"ton",
 		"t",
 		"oz",
 		"fl oz",
+		"pt",
+		"qt",
+		"gal",
+		"pt",
+		"qt",
+		"gal",
 		"fl oz",
 		"pt",
-		"pt",
-		"pt",
-		"pt",
 		"qt",
-		"qt",
-		"qt",
-		"qt",
-		"gal",
-		"gal",
-		"gal",
 		"gal",
 		"in",
 		"ft",
@@ -340,7 +338,7 @@ public class UnitData {
 		"°K",
 		"°R",
 		"Ci",
-		"rd"
+		"Rd"
 	));
 	
 	/*
@@ -401,21 +399,21 @@ public class UnitData {
 	 * Mass Units
 	 */
 	private static final ArrayList<String> massUnits = new ArrayList<String>(Arrays.asList(
-			"milligram",
-			"gram",
-			"kilogram",
-			"pound",
-			"ton (US)",
-			"ton (uk)",
-			"ton (metric)",
-			"ounce"
+			"Milligram",
+			"Gram",
+			"Kilogram",
+			"Pound",
+			"Ton (US)",
+			"Ton (uk)",
+			"Ton (metric)",
+			"Ounce"
 	));
 	
 	private static final ArrayList<String> massUnitsAbv = new ArrayList<String>(Arrays.asList(
 			"mg",
 			"g",
 			"kg",
-			"lbs",
+			"lb",
 			"ST",
 			"ton",
 			"t",
@@ -427,36 +425,30 @@ public class UnitData {
 	 * Volume Units
 	 */
 	private static final ArrayList<String> volumeUnits = new ArrayList<String>(Arrays.asList(
-			"ounce (liquid, US)",
-			"ounce (liquid, UK)",
-			"pint (liquid, US)",
-			"pint (liquid, UK)",
-			"pint (dry, US)",
-			"pint (dry, UK)",
-			"quart (liquid, US)",
-			"quart (liquid, Uk)",
-			"quart (dry, US)",
-			"quart (dry, UK)",
-			"gallon (liquid, US)",
-			"gallon (liquid, UK)",
-			"gallon (dry, US)",
-			"gallon (dry, UK)"
+			"US Fluid Ounce",
+			"US Liquid Pint",
+			"US Liquid Quart",
+			"US Liquid Gallon",
+			"US Dry Pint",
+			"US Dry Quart",
+			"US Dry Gallon",
+			"UK Fluid Ounce",
+			"UK Pint",
+			"UK Quart",
+			"UK Gallon"
 	));
 	
 	private static final ArrayList<String> volumeUnitsAbv = new ArrayList<String>(Arrays.asList(
 			"fl oz",
+			"pt",
+			"qt",
+			"gal",
+			"pt",
+			"qt",
+			"gal",
 			"fl oz",
 			"pt",
-			"pt",
-			"pt",
-			"pt",
 			"qt",
-			"qt",
-			"qt",
-			"qt",
-			"gal",
-			"gal",
-			"gal",
 			"gal"
 	));
 	
@@ -465,14 +457,14 @@ public class UnitData {
 	 * Distance Units
 	 */
 	private static final ArrayList<String> distanceUnits = new ArrayList<String>(Arrays.asList(
-			"inch",
-			"foot",
-			"mile",
-			"nautical mile",
-			"angstrom",
-			"astronomical unit",
-			"light year",
-			"parsec"
+			"Inch",
+			"Foot",
+			"Mile",
+			"Nautical Mile",
+			"Angstrom",
+			"Astronomical Unit",
+			"Light Year",
+			"Parsec"
 	));
 	
 	private static final ArrayList<String> distanceUnitsAbv = new ArrayList<String>(Arrays.asList(
@@ -495,12 +487,12 @@ public class UnitData {
 	 * Time Units
 	 */
 	private static final ArrayList<String> timeUnits = new ArrayList<String>(Arrays.asList(
-		"hour",
-		"minute",
-		"second",
-		"day",
-		"week",
-		"year"
+		"Hour",
+		"Minute",
+		"Second",
+		"Day",
+		"Week",
+		"Year"
 	));
 	
 	private static final ArrayList<String> timeUnitsAbv = new ArrayList<String>(Arrays.asList(
@@ -510,5 +502,18 @@ public class UnitData {
 		"day",
 		"week",
 		"year"
+	));
+	
+	/*
+	 * Radioactivity Units
+	 */
+	private static final ArrayList<String> radioactivityUnits = new ArrayList<String>(Arrays.asList(
+		"Curie",
+		"Rutherford"
+	));
+	
+	private static final ArrayList<String> radioactivityUnitsAbv = new ArrayList<String>(Arrays.asList(
+		"Ci",
+		"Rd"
 	));
 }

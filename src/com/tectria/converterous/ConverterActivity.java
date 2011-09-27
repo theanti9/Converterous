@@ -94,7 +94,7 @@ public class ConverterActivity extends Activity {
 		        String unitname = lblTo.getText().toString();
 				String unitinfo;
 				try {
-					unitinfo = (String)getResources().getText(getResources().getIdentifier(unitname.toUpperCase(), "string", "com.tectria.converterous"));
+					unitinfo = (String)getResources().getText(getResources().getIdentifier(UnitData.getConst(unitname), "string", "com.tectria.converterous"));
 				} catch(Resources.NotFoundException e) {
 					unitinfo = "No information availible.";
 				}
@@ -110,7 +110,7 @@ public class ConverterActivity extends Activity {
 		        String unitname = lblFrom.getText().toString();
 				String unitinfo;
 				try {
-					unitinfo = (String)getResources().getText(getResources().getIdentifier(unitname.toUpperCase(), "string", "com.tectria.converterous"));
+					unitinfo = (String)getResources().getText(getResources().getIdentifier(UnitData.getConst(unitname), "string", "com.tectria.converterous"));
 				} catch(Resources.NotFoundException e) {
 					unitinfo = "No information availible.";
 				}
@@ -152,7 +152,7 @@ public class ConverterActivity extends Activity {
         
         whlFrom.addChangingListener(new OnWheelChangedListener() {
 			public void onChanged(WheelView wheel, int oldVal, int newVal) {
-				lblFrom.setText(casecor(UnitData.getName(whlTo.getCurrentItem(), whlFrom.getCurrentItem())));
+				lblFrom.setText(casecor(UnitData.getName(whlType.getCurrentItem(), whlFrom.getCurrentItem())));
 				updateToUnits(whlType.getCurrentItem());
 				showResults();
 				playClick();
@@ -444,8 +444,8 @@ public class ConverterActivity extends Activity {
 		}
 		
 		lblTo.setText(casecor(UnitData.getName(typeIndex, toIndex)));
-		converter.setFromUnit(UnitData.getName(typeIndex, fromIndex));
-		converter.setToUnit(UnitData.getName(typeIndex, toIndex));
+		converter.setFromUnit(UnitData.getConst(typeIndex, fromIndex));
+		converter.setToUnit(UnitData.getConst(typeIndex, toIndex));
 		converter.setFromNum(fromnum);
 		converter.setFromSI(UnitData.getSI(typeIndex, fromIndex));
 		converter.setToSI(UnitData.getSI(typeIndex, toIndex));
@@ -475,8 +475,8 @@ public class ConverterActivity extends Activity {
 			toIndex += 1;
 		}
 		
-		converter.setFromUnit(UnitData.getName(typeIndex, fromIndex));
-		converter.setToUnit(UnitData.getName(typeIndex, toIndex));
+		converter.setFromUnit(UnitData.getConst(typeIndex, fromIndex));
+		converter.setToUnit(UnitData.getConst(typeIndex, toIndex));
 		converter.setFromNum(fromnum);
 		converter.setFromSI(UnitData.getSI(typeIndex, fromIndex));
 		converter.setToSI(UnitData.getSI(typeIndex, toIndex));
