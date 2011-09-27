@@ -305,6 +305,8 @@ public final class NonSI extends SystemOfUnits {
      * standard name <code>t</code>).
      */
     public static final Unit<Mass> METRIC_TON = nonSI(KILOGRAM.times(1000));
+    
+    public static final Unit<Mass> MILLIGRAM = nonSI(MILLI(GRAM));
 
     /////////////////////
     // Electric charge //

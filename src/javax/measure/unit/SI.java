@@ -141,7 +141,7 @@ public final class SI extends SystemOfUnits {
      */
     public static final Unit<Mass> GRAM = KILOGRAM.divide(1000);
 
-    public static final Unit<Mass> MILLIGRAM = GRAM.times(1000);
+    public static final Unit<Mass> MILLIGRAM = GRAM;
 
     /**
      * The unit for plane angle quantities (<code>rad</code>).

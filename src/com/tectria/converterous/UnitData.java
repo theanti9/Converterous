@@ -261,7 +261,7 @@ public class UnitData {
 		false, // Day
 		false, // Week
 		false, // Year
-		true, // Milligram
+		false, // Milligram
 		true, // Gram
 		true, // Kilogram
 		false, // pound
